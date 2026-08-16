@@ -1,96 +1,96 @@
 == Baseline (absl RemoveExtraAsciiWhitespace) ==
-orig/clean/16                                     min=    13.22 ns  median=    13.72 ns  mean=    15.57 ns  ±22.0%  (reps=25, inner=228980)
-orig/single_run/16                                min=    16.38 ns  median=    16.45 ns  mean=    16.48 ns  ±0.6%  (reps=25, inner=372363)
-orig/many_runs/16                                 min=    15.43 ns  median=    15.68 ns  mean=    15.70 ns  ±1.1%  (reps=25, inner=387976)
-orig/trail_ws/16                                  min=    13.21 ns  median=    14.44 ns  mean=    18.31 ns  ±60.3%  (reps=25, inner=254220)
-orig/leading_ws/16                                min=    13.21 ns  median=    13.67 ns  mean=    13.82 ns  ±5.4%  (reps=25, inner=438857)
-orig/dirty/16                                     min=    15.00 ns  median=    15.77 ns  mean=    15.75 ns  ±2.7%  (reps=25, inner=396387)
-orig/clean/64                                     min=    40.40 ns  median=    41.87 ns  mean=    42.47 ns  ±5.2%  (reps=25, inner=142340)
-orig/single_run/64                                min=    43.99 ns  median=    46.66 ns  mean=    53.40 ns  ±25.3%  (reps=25, inner=128449)
-orig/many_runs/64                                 min=    43.77 ns  median=    44.62 ns  mean=    45.06 ns  ±2.2%  (reps=25, inner=133565)
-orig/trail_ws/64                                  min=    41.70 ns  median=    42.84 ns  mean=    47.22 ns  ±28.3%  (reps=25, inner=144564)
-orig/leading_ws/64                                min=    40.13 ns  median=    41.17 ns  mean=    41.35 ns  ±2.3%  (reps=25, inner=149853)
-orig/dirty/64                                     min=    43.54 ns  median=    44.27 ns  mean=    44.50 ns  ±1.6%  (reps=25, inner=138067)
-orig/clean/256                                    min=   153.94 ns  median=   155.00 ns  mean=   155.24 ns  ±0.8%  (reps=25, inner=38400)
-orig/single_run/256                               min=   157.88 ns  median=   161.15 ns  mean=   165.45 ns  ±8.8%  (reps=25, inner=38400)
-orig/many_runs/256                                min=   164.25 ns  median=   173.15 ns  mean=   196.56 ns  ±19.7%  (reps=25, inner=47186)
-orig/trail_ws/256                                 min=   157.05 ns  median=   164.51 ns  mean=   165.26 ns  ±3.3%  (reps=25, inner=36009)
-orig/leading_ws/256                               min=   154.15 ns  median=   165.10 ns  mean=   164.93 ns  ±4.9%  (reps=25, inner=34909)
-orig/dirty/256                                    min=   157.80 ns  median=   167.67 ns  mean=   173.43 ns  ±11.5%  (reps=25, inner=37166)
-orig/clean/1024                                   min=   607.16 ns  median=   658.54 ns  mean=   663.76 ns  ±6.2%  (reps=25, inner=9107)
-orig/single_run/1024                              min=   610.31 ns  median=   624.59 ns  mean=   628.22 ns  ±2.2%  (reps=25, inner=9559)
-orig/many_runs/1024                               min=   616.21 ns  median=   620.00 ns  mean=   621.78 ns  ±0.7%  (reps=25, inner=9639)
-orig/trail_ws/1024                                min=   609.67 ns  median=   642.81 ns  mean=   659.29 ns  ±8.5%  (reps=25, inner=9846)
-orig/leading_ws/1024                              min=   608.59 ns  median=   628.88 ns  mean=   628.93 ns  ±2.3%  (reps=25, inner=9442)
-orig/dirty/1024                                   min=   613.76 ns  median=   623.88 ns  mean=   625.51 ns  ±1.3%  (reps=25, inner=9721)
-orig/clean/4096                                   min=  2467.81 ns  median=  2500.16 ns  mean=  2499.15 ns  ±0.9%  (reps=25, inner=2400)
-orig/single_run/4096                              min=  2466.88 ns  median=  2501.15 ns  mean=  2500.47 ns  ±0.8%  (reps=25, inner=2361)
-orig/many_runs/4096                               min=  2477.98 ns  median=  2506.73 ns  mean=  2509.15 ns  ±1.0%  (reps=25, inner=2441)
-orig/trail_ws/4096                                min=  2489.84 ns  median=  2584.74 ns  mean=  2597.22 ns  ±3.7%  (reps=25, inner=2400)
-orig/leading_ws/4096                              min=  2477.51 ns  median=  2533.21 ns  mean=  2551.22 ns  ±2.4%  (reps=25, inner=2360)
-orig/dirty/4096                                   min=  2481.59 ns  median=  2545.18 ns  mean=  2560.24 ns  ±3.2%  (reps=25, inner=2360)
+orig/clean/16                                     min=    13.22 ns  median=    15.61 ns  mean=    16.77 ns  ±24.4%  (reps=25, inner=193013)
+orig/single_run/16                                min=    16.27 ns  median=    16.56 ns  mean=    16.58 ns  ±1.0%  (reps=25, inner=368610)
+orig/many_runs/16                                 min=    15.42 ns  median=    15.54 ns  mean=    15.58 ns  ±0.8%  (reps=25, inner=392136)
+orig/trail_ws/16                                  min=    13.21 ns  median=    13.34 ns  mean=    13.41 ns  ±1.1%  (reps=25, inner=455111)
+orig/leading_ws/16                                min=    13.21 ns  median=    13.28 ns  mean=    13.32 ns  ±0.8%  (reps=25, inner=438857)
+orig/dirty/16                                     min=    14.90 ns  median=    14.98 ns  mean=    15.01 ns  ±0.6%  (reps=25, inner=392136)
+orig/clean/64                                     min=    40.64 ns  median=    40.90 ns  mean=    41.01 ns  ±0.8%  (reps=25, inner=146285)
+orig/single_run/64                                min=    43.95 ns  median=    44.35 ns  mean=    44.39 ns  ±0.7%  (reps=25, inner=137032)
+orig/many_runs/64                                 min=    43.85 ns  median=    44.33 ns  mean=    45.92 ns  ±6.1%  (reps=25, inner=137548)
+orig/trail_ws/64                                  min=    41.56 ns  median=    42.69 ns  mean=    42.96 ns  ±2.5%  (reps=25, inner=148048)
+orig/leading_ws/64                                min=    39.75 ns  median=    40.35 ns  mean=    40.40 ns  ±0.9%  (reps=25, inner=145716)
+orig/dirty/64                                     min=    43.52 ns  median=    43.91 ns  mean=    44.01 ns  ±0.8%  (reps=25, inner=138578)
+orig/clean/256                                    min=   154.07 ns  median=   155.27 ns  mean=   155.70 ns  ±0.9%  (reps=25, inner=38400)
+orig/single_run/256                               min=   157.77 ns  median=   158.03 ns  mean=   158.64 ns  ±0.7%  (reps=25, inner=37765)
+orig/many_runs/256                                min=   154.36 ns  median=   158.92 ns  mean=   159.15 ns  ±1.0%  (reps=25, inner=38400)
+orig/trail_ws/256                                 min=   153.20 ns  median=   154.59 ns  mean=   154.86 ns  ±0.9%  (reps=25, inner=37166)
+orig/leading_ws/256                               min=   152.63 ns  median=   154.34 ns  mean=   154.54 ns  ±1.0%  (reps=25, inner=38400)
+orig/dirty/256                                    min=   154.34 ns  median=   158.93 ns  mean=   159.04 ns  ±1.0%  (reps=25, inner=37151)
+orig/clean/1024                                   min=   607.34 ns  median=   612.39 ns  mean=   613.52 ns  ±0.9%  (reps=25, inner=9804)
+orig/single_run/1024                              min=   608.22 ns  median=   611.56 ns  mean=   613.80 ns  ±1.0%  (reps=25, inner=9846)
+orig/many_runs/1024                               min=   615.34 ns  median=   621.00 ns  mean=   621.72 ns  ±0.8%  (reps=25, inner=9681)
+orig/trail_ws/1024                                min=   598.64 ns  median=   612.63 ns  mean=   613.44 ns  ±1.1%  (reps=25, inner=9846)
+orig/leading_ws/1024                              min=   597.18 ns  median=   611.37 ns  mean=   614.19 ns  ±1.5%  (reps=25, inner=9804)
+orig/dirty/1024                                   min=   616.36 ns  median=   626.60 ns  mean=   645.29 ns  ±7.4%  (reps=25, inner=9681)
+orig/clean/4096                                   min=  2467.43 ns  median=  2521.93 ns  mean=  2561.61 ns  ±4.7%  (reps=25, inner=2250)
+orig/single_run/4096                              min=  2465.41 ns  median=  2506.51 ns  mean=  2518.15 ns  ±1.7%  (reps=25, inner=2360)
+orig/many_runs/4096                               min=  2477.78 ns  median=  2502.89 ns  mean=  2527.66 ns  ±2.3%  (reps=25, inner=2361)
+orig/trail_ws/4096                                min=  2468.03 ns  median=  2480.19 ns  mean=  2487.92 ns  ±0.9%  (reps=25, inner=2360)
+orig/leading_ws/4096                              min=  2466.77 ns  median=  2490.84 ns  mean=  2498.40 ns  ±1.1%  (reps=25, inner=2361)
+orig/dirty/4096                                   min=  2462.99 ns  median=  2505.19 ns  mean=  2508.10 ns  ±1.0%  (reps=25, inner=2400)
 
 == Optimized (fast no-op scan + slow rewrite fallback) ==
-opt/clean/16                                      min=    10.59 ns  median=    10.72 ns  mean=    10.75 ns  ±1.1%  (reps=25, inner=558545)
-opt/single_run/16                                 min=    17.16 ns  median=    17.47 ns  mean=    17.48 ns  ±1.2%  (reps=25, inner=344549)
-opt/many_runs/16                                  min=    11.27 ns  median=    12.17 ns  mean=    12.36 ns  ±6.9%  (reps=25, inner=526748)
-opt/trail_ws/16                                   min=    13.41 ns  median=    14.49 ns  mean=    14.90 ns  ±15.1%  (reps=25, inner=400730)
-opt/leading_ws/16                                 min=    12.38 ns  median=    12.71 ns  mean=    12.87 ns  ±2.8%  (reps=25, inner=485154)
-opt/dirty/16                                      min=    15.81 ns  median=    16.22 ns  mean=    16.25 ns  ±2.0%  (reps=25, inner=380009)
-opt/clean/64                                      min=    29.79 ns  median=    31.21 ns  mean=    32.14 ns  ±7.7%  (reps=25, inner=199247)
-opt/single_run/64                                 min=    52.52 ns  median=    55.52 ns  mean=    56.81 ns  ±6.3%  (reps=25, inner=96000)
-opt/many_runs/64                                  min=    31.78 ns  median=    35.03 ns  mean=    36.29 ns  ±16.3%  (reps=25, inner=170666)
-opt/trail_ws/64                                   min=    42.06 ns  median=    43.58 ns  mean=    44.20 ns  ±4.5%  (reps=25, inner=141241)
-opt/leading_ws/64                                 min=    39.89 ns  median=    40.80 ns  mean=    41.46 ns  ±5.5%  (reps=25, inner=152957)
-opt/dirty/64                                      min=    44.08 ns  median=    45.23 ns  mean=    46.49 ns  ±5.5%  (reps=25, inner=124008)
-opt/clean/256                                     min=   121.43 ns  median=   123.04 ns  mean=   123.29 ns  ±1.1%  (reps=25, inner=46087)
-opt/single_run/256                                min=   194.36 ns  median=   195.73 ns  mean=   196.26 ns  ±0.9%  (reps=25, inner=27428)
-opt/many_runs/256                                 min=   121.36 ns  median=   122.47 ns  mean=   122.85 ns  ±1.0%  (reps=25, inner=49029)
-opt/trail_ws/256                                  min=   153.07 ns  median=   154.15 ns  mean=   154.65 ns  ±1.0%  (reps=25, inner=39040)
-opt/leading_ws/256                                min=   152.62 ns  median=   153.60 ns  mean=   154.17 ns  ±0.9%  (reps=25, inner=39040)
-opt/dirty/256                                     min=   158.15 ns  median=   159.10 ns  mean=   159.53 ns  ±0.8%  (reps=25, inner=37765)
-opt/clean/1024                                    min=   454.74 ns  median=   456.14 ns  mean=   458.17 ns  ±0.9%  (reps=25, inner=13166)
-opt/single_run/1024                               min=   763.84 ns  median=   773.06 ns  mean=   777.47 ns  ±2.3%  (reps=25, inner=8000)
-opt/many_runs/1024                                min=   456.98 ns  median=   460.87 ns  mean=   463.16 ns  ±1.3%  (reps=25, inner=11875)
-opt/trail_ws/1024                                 min=   606.98 ns  median=   613.42 ns  mean=   613.71 ns  ±0.9%  (reps=25, inner=9762)
-opt/leading_ws/1024                               min=   606.10 ns  median=   610.47 ns  mean=   612.03 ns  ±1.0%  (reps=25, inner=9804)
-opt/dirty/1024                                    min=   609.81 ns  median=   614.46 ns  mean=   616.88 ns  ±1.1%  (reps=25, inner=9721)
-opt/clean/4096                                    min=  1793.44 ns  median=  1806.36 ns  mean=  1813.30 ns  ±1.1%  (reps=25, inner=3273)
-opt/single_run/4096                               min=  3059.16 ns  median=  3114.37 ns  mean=  3121.54 ns  ±1.8%  (reps=25, inner=1920)
-opt/many_runs/4096                                min=  1829.92 ns  median=  1858.34 ns  mean=  1865.54 ns  ±1.4%  (reps=25, inner=3199)
-opt/trail_ws/4096                                 min=  2466.29 ns  median=  2485.55 ns  mean=  2501.41 ns  ±1.5%  (reps=25, inner=2361)
-opt/leading_ws/4096                               min=  2472.81 ns  median=  2512.87 ns  mean=  2544.13 ns  ±3.3%  (reps=25, inner=2285)
-opt/dirty/4096                                    min=  2491.14 ns  median=  2529.73 ns  mean=  2528.69 ns  ±0.9%  (reps=25, inner=2360)
+opt/clean/16                                      min=    10.58 ns  median=    10.69 ns  mean=    10.70 ns  ±0.8%  (reps=25, inner=519094)
+opt/single_run/16                                 min=    17.15 ns  median=    17.28 ns  mean=    17.31 ns  ±0.8%  (reps=25, inner=347826)
+opt/many_runs/16                                  min=    11.19 ns  median=    11.31 ns  mean=    11.43 ns  ±3.4%  (reps=25, inner=541990)
+opt/trail_ws/16                                   min=    13.21 ns  median=    13.38 ns  mean=    13.39 ns  ±1.1%  (reps=25, inner=444187)
+opt/leading_ws/16                                 min=    12.33 ns  median=    12.71 ns  mean=    12.82 ns  ±3.8%  (reps=25, inner=485001)
+opt/dirty/16                                      min=    15.80 ns  median=    15.97 ns  mean=    16.03 ns  ±1.4%  (reps=25, inner=376193)
+opt/clean/64                                      min=    29.79 ns  median=    29.87 ns  mean=    30.02 ns  ±0.8%  (reps=25, inner=195047)
+opt/single_run/64                                 min=    52.65 ns  median=    53.10 ns  mean=    53.26 ns  ±0.9%  (reps=25, inner=96000)
+opt/many_runs/64                                  min=    31.38 ns  median=    31.51 ns  mean=    31.65 ns  ±1.0%  (reps=25, inner=188073)
+opt/trail_ws/64                                   min=    41.57 ns  median=    42.05 ns  mean=    42.12 ns  ±0.8%  (reps=25, inner=143444)
+opt/leading_ws/64                                 min=    39.50 ns  median=    39.71 ns  mean=    39.81 ns  ±0.9%  (reps=25, inner=148048)
+opt/dirty/64                                      min=    43.79 ns  median=    43.93 ns  mean=    44.09 ns  ±0.9%  (reps=25, inner=136025)
+opt/clean/256                                     min=   121.25 ns  median=   122.06 ns  mean=   122.42 ns  ±1.0%  (reps=25, inner=49029)
+opt/single_run/256                                min=   194.29 ns  median=   194.99 ns  mean=   196.11 ns  ±1.0%  (reps=25, inner=30720)
+opt/many_runs/256                                 min=   121.20 ns  median=   121.95 ns  mean=   122.17 ns  ±0.7%  (reps=25, inner=48000)
+opt/trail_ws/256                                  min=   153.04 ns  median=   154.30 ns  mean=   154.95 ns  ±1.4%  (reps=25, inner=39056)
+opt/leading_ws/256                                min=   152.46 ns  median=   153.17 ns  mean=   153.84 ns  ±1.0%  (reps=25, inner=39040)
+opt/dirty/256                                     min=   157.27 ns  median=   159.17 ns  mean=   159.24 ns  ±0.7%  (reps=25, inner=37166)
+opt/clean/1024                                    min=   451.49 ns  median=   458.16 ns  mean=   459.22 ns  ±0.9%  (reps=25, inner=12590)
+opt/single_run/1024                               min=   766.01 ns  median=   779.45 ns  mean=   789.31 ns  ±3.3%  (reps=25, inner=12000)
+opt/many_runs/1024                                min=   456.32 ns  median=   461.04 ns  mean=   693.42 ns  ±73.7%  (reps=25, inner=12872)
+opt/trail_ws/1024                                 min=   613.06 ns  median=   627.51 ns  mean=   642.02 ns  ±7.1%  (reps=25, inner=9179)
+opt/leading_ws/1024                               min=   606.18 ns  median=   618.85 ns  mean=   623.60 ns  ±2.3%  (reps=25, inner=9076)
+opt/dirty/1024                                    min=   615.14 ns  median=   623.07 ns  mean=   624.47 ns  ±1.4%  (reps=25, inner=9680)
+opt/clean/4096                                    min=  1764.04 ns  median=  1824.99 ns  mean=  1832.96 ns  ±3.0%  (reps=25, inner=3348)
+opt/single_run/4096                               min=  3058.34 ns  median=  3083.03 ns  mean=  3090.05 ns  ±0.8%  (reps=25, inner=1777)
+opt/many_runs/4096                                min=  1816.02 ns  median=  1877.24 ns  mean=  1919.74 ns  ±5.4%  (reps=25, inner=3199)
+opt/trail_ws/4096                                 min=  2466.90 ns  median=  2480.14 ns  mean=  2488.52 ns  ±0.8%  (reps=25, inner=2214)
+opt/leading_ws/4096                               min=  2465.36 ns  median=  2486.41 ns  mean=  2494.22 ns  ±1.2%  (reps=25, inner=2400)
+opt/dirty/4096                                    min=  2482.25 ns  median=  2513.96 ns  mean=  2526.39 ns  ±2.1%  (reps=25, inner=2322)
 
 == Summary (median ns/op, including per-iter buffer reset) ==
 workload                            orig ns/op     opt ns/op   speedup     %faster
-clean/16                                 13.72         10.72     1.28x       21.9%
-single_run/16                            16.45         17.47     0.94x       -6.2%
-many_runs/16                             15.68         12.17     1.29x       22.4%
-trail_ws/16                              14.44         14.49     1.00x       -0.4%
-leading_ws/16                            13.67         12.71     1.08x        7.0%
-dirty/16                                 15.77         16.22     0.97x       -2.9%
-clean/64                                 41.87         31.21     1.34x       25.5%
-single_run/64                            46.66         55.52     0.84x      -19.0%
-many_runs/64                             44.62         35.03     1.27x       21.5%
-trail_ws/64                              42.84         43.58     0.98x       -1.7%
-leading_ws/64                            41.17         40.80     1.01x        0.9%
-dirty/64                                 44.27         45.23     0.98x       -2.2%
-clean/256                               155.00        123.04     1.26x       20.6%
-single_run/256                          161.15        195.73     0.82x      -21.5%
-many_runs/256                           173.15        122.47     1.41x       29.3%
-trail_ws/256                            164.51        154.15     1.07x        6.3%
-leading_ws/256                          165.10        153.60     1.07x        7.0%
-dirty/256                               167.67        159.10     1.05x        5.1%
-clean/1024                              658.54        456.14     1.44x       30.7%
-single_run/1024                         624.59        773.06     0.81x      -23.8%
-many_runs/1024                          620.00        460.87     1.35x       25.7%
-trail_ws/1024                           642.81        613.42     1.05x        4.6%
-leading_ws/1024                         628.88        610.47     1.03x        2.9%
-dirty/1024                              623.88        614.46     1.02x        1.5%
-clean/4096                             2500.16       1806.36     1.38x       27.8%
-single_run/4096                        2501.15       3114.37     0.80x      -24.5%
-many_runs/4096                         2506.73       1858.34     1.35x       25.9%
-trail_ws/4096                          2584.74       2485.55     1.04x        3.8%
-leading_ws/4096                        2533.21       2512.87     1.01x        0.8%
-dirty/4096                             2545.18       2529.73     1.01x        0.6%
+clean/16                                 15.61         10.69     1.46x       31.5%
+single_run/16                            16.56         17.28     0.96x       -4.3%
+many_runs/16                             15.54         11.31     1.37x       27.2%
+trail_ws/16                              13.34         13.38     1.00x       -0.2%
+leading_ws/16                            13.28         12.71     1.04x        4.3%
+dirty/16                                 14.98         15.97     0.94x       -6.7%
+clean/64                                 40.90         29.87     1.37x       27.0%
+single_run/64                            44.35         53.10     0.84x      -19.7%
+many_runs/64                             44.33         31.51     1.41x       28.9%
+trail_ws/64                              42.69         42.05     1.02x        1.5%
+leading_ws/64                            40.35         39.71     1.02x        1.6%
+dirty/64                                 43.91         43.93     1.00x       -0.0%
+clean/256                               155.27        122.06     1.27x       21.4%
+single_run/256                          158.03        194.99     0.81x      -23.4%
+many_runs/256                           158.92        121.95     1.30x       23.3%
+trail_ws/256                            154.59        154.30     1.00x        0.2%
+leading_ws/256                          154.34        153.17     1.01x        0.8%
+dirty/256                               158.93        159.17     1.00x       -0.1%
+clean/1024                              612.39        458.16     1.34x       25.2%
+single_run/1024                         611.56        779.45     0.78x      -27.5%
+many_runs/1024                          621.00        461.04     1.35x       25.8%
+trail_ws/1024                           612.63        627.51     0.98x       -2.4%
+leading_ws/1024                         611.37        618.85     0.99x       -1.2%
+dirty/1024                              626.60        623.07     1.01x        0.6%
+clean/4096                             2521.93       1824.99     1.38x       27.6%
+single_run/4096                        2506.51       3083.03     0.81x      -23.0%
+many_runs/4096                         2502.89       1877.24     1.33x       25.0%
+trail_ws/4096                          2480.19       2480.14     1.00x        0.0%
+leading_ws/4096                        2490.84       2486.41     1.00x        0.2%
+dirty/4096                             2505.19       2513.96     1.00x       -0.4%

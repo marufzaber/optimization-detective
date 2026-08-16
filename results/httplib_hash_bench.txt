@@ -1,0 +1,16 @@
+== Baseline (upstream: recursive hash_core) ==
+
+== Optimized (loop-based hash_core) ==
+
+orig/short_header ("Host")                        min=     2.93 ns  median=     3.01 ns  mean=     3.41 ns  ±21.0%  (reps=25, inner=1189775)
+opt/short_header ("Host")                         min=     2.06 ns  median=     2.07 ns  mean=     2.08 ns  ±0.8%  (reps=25, inner=2877414)
+  >> short_header ("Host"): orig=3.01 ns  opt=2.07 ns  1.45x  +31.1%
+
+orig/typical_header ("Content-Type")              min=     7.48 ns  median=     7.68 ns  mean=     7.68 ns  ±1.0%  (reps=25, inner=1053497)
+opt/typical_header ("Content-Type")               min=     5.73 ns  median=     5.78 ns  mean=     5.79 ns  ±0.6%  (reps=25, inner=1052775)
+  >> typical_header ("Content-Type"): orig=7.68 ns  opt=5.78 ns  1.33x  +24.7%
+
+orig/long_header (35 chars)                       min=    21.67 ns  median=    21.87 ns  mean=    21.94 ns  ±0.9%  (reps=25, inner=285767)
+opt/long_header (35 chars)                        min=    20.19 ns  median=    20.77 ns  mean=    20.87 ns  ±2.0%  (reps=25, inner=249067)
+  >> long_header (35 chars): orig=21.87 ns  opt=20.77 ns  1.05x  +5.1%
+

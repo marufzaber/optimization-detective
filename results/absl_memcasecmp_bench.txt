@@ -1,126 +1,126 @@
 == Baseline (absl memcasecmp, byte loop) ==
-orig/eq_exact/4                                   min=     2.28 ns  median=     2.71 ns  mean=     2.95 ns  ±24.7%  (reps=25, inner=1024000)
-orig/eq_case/4                                    min=     4.28 ns  median=     4.45 ns  mean=     4.49 ns  ±3.8%  (reps=25, inner=1365333)
-orig/diff_at_start/4                              min=     0.87 ns  median=     0.90 ns  mean=     0.90 ns  ±1.6%  (reps=25, inner=6411687)
-orig/diff_at_mid/4                                min=     2.00 ns  median=     2.01 ns  mean=     2.03 ns  ±1.7%  (reps=25, inner=2919805)
-orig/diff_at_end/4                                min=     2.29 ns  median=     2.30 ns  mean=     2.32 ns  ±1.5%  (reps=25, inner=2621440)
-orig/eq_exact/8                                   min=     3.43 ns  median=     3.46 ns  mean=     3.47 ns  ±1.3%  (reps=25, inner=1750302)
-orig/eq_case/8                                    min=     7.04 ns  median=     7.09 ns  mean=     7.11 ns  ±0.8%  (reps=25, inner=857621)
-orig/diff_at_start/8                              min=     0.88 ns  median=     0.92 ns  mean=     0.93 ns  ±7.1%  (reps=25, inner=6481012)
-orig/diff_at_mid/8                                min=     2.57 ns  median=     2.63 ns  mean=     2.63 ns  ±1.7%  (reps=25, inner=2121730)
-orig/diff_at_end/8                                min=     3.44 ns  median=     3.54 ns  mean=     3.53 ns  ±1.3%  (reps=25, inner=1690001)
-orig/eq_exact/16                                  min=     5.74 ns  median=     6.05 ns  mean=     6.28 ns  ±10.9%  (reps=25, inner=996755)
-orig/eq_case/16                                   min=    13.77 ns  median=    14.41 ns  mean=    14.37 ns  ±2.6%  (reps=25, inner=409599)
-orig/diff_at_start/16                             min=     0.88 ns  median=     0.90 ns  mean=     0.91 ns  ±3.5%  (reps=25, inner=6411687)
-orig/diff_at_mid/16                               min=     3.72 ns  median=     3.86 ns  mean=     3.86 ns  ±1.9%  (reps=25, inner=1416974)
-orig/diff_at_end/16                               min=     5.73 ns  median=     5.91 ns  mean=     5.90 ns  ±1.6%  (reps=25, inner=1053497)
-orig/eq_exact/32                                  min=    10.36 ns  median=    10.71 ns  mean=    10.88 ns  ±5.0%  (reps=25, inner=558545)
-orig/eq_case/32                                   min=    27.78 ns  median=    28.39 ns  mean=    28.43 ns  ±1.6%  (reps=25, inner=216857)
-orig/diff_at_start/32                             min=     0.86 ns  median=     0.89 ns  mean=     0.90 ns  ±2.6%  (reps=25, inner=6410015)
-orig/diff_at_mid/32                               min=     6.00 ns  median=     6.20 ns  mean=     6.19 ns  ±2.1%  (reps=25, inner=945230)
-orig/diff_at_end/32                               min=    10.28 ns  median=    10.63 ns  mean=    10.62 ns  ±1.7%  (reps=25, inner=585142)
-orig/eq_exact/64                                  min=    19.95 ns  median=    20.21 ns  mean=    20.22 ns  ±1.2%  (reps=25, inner=234790)
-orig/eq_case/64                                   min=    55.06 ns  median=    57.05 ns  mean=    57.07 ns  ±1.3%  (reps=25, inner=92130)
-orig/diff_at_start/64                             min=     0.88 ns  median=     0.90 ns  mean=     0.90 ns  ±1.4%  (reps=25, inner=6481012)
-orig/diff_at_mid/64                               min=    10.64 ns  median=    10.95 ns  mean=    10.96 ns  ±1.2%  (reps=25, inner=550143)
-orig/diff_at_end/64                               min=    19.84 ns  median=    20.12 ns  mean=    20.21 ns  ±1.4%  (reps=25, inner=304701)
-orig/eq_exact/256                                 min=    85.25 ns  median=    86.21 ns  mean=    86.37 ns  ±0.9%  (reps=25, inner=64000)
-orig/eq_case/256                                  min=   226.66 ns  median=   234.37 ns  mean=   233.15 ns  ±1.8%  (reps=25, inner=25599)
-orig/diff_at_start/256                            min=     0.88 ns  median=     0.90 ns  mean=     0.91 ns  ±2.3%  (reps=25, inner=6701936)
-orig/diff_at_mid/256                              min=    48.28 ns  median=    48.75 ns  mean=    48.84 ns  ±0.8%  (reps=25, inner=126243)
-orig/diff_at_end/256                              min=    87.51 ns  median=    87.93 ns  mean=    88.22 ns  ±0.9%  (reps=25, inner=62256)
-orig/eq_exact/1024                                min=   316.83 ns  median=   327.21 ns  mean=   327.77 ns  ±1.4%  (reps=25, inner=16574)
-orig/eq_case/1024                                 min=   907.53 ns  median=   922.39 ns  mean=   926.59 ns  ±1.3%  (reps=25, inner=6564)
-orig/diff_at_start/1024                           min=     0.86 ns  median=     0.89 ns  mean=     0.90 ns  ±3.5%  (reps=25, inner=6482722)
-orig/diff_at_mid/1024                             min=   172.70 ns  median=   174.15 ns  mean=   174.69 ns  ±1.0%  (reps=25, inner=33391)
-orig/diff_at_end/1024                             min=   319.61 ns  median=   328.30 ns  mean=   328.19 ns  ±0.9%  (reps=25, inner=18285)
-orig/eq_exact/4096                                min=  1221.71 ns  median=  1261.09 ns  mean=  1265.15 ns  ±2.3%  (reps=25, inner=4643)
-orig/eq_case/4096                                 min=  3545.56 ns  median=  3655.69 ns  mean=  3662.11 ns  ±1.3%  (reps=25, inner=1636)
-orig/diff_at_start/4096                           min=     0.88 ns  median=     0.90 ns  mean=     0.90 ns  ±2.3%  (reps=25, inner=6481012)
-orig/diff_at_mid/4096                             min=   630.32 ns  median=   639.52 ns  mean=   643.96 ns  ±2.3%  (reps=25, inner=9365)
-orig/diff_at_end/4096                             min=  1264.17 ns  median=  1342.87 ns  mean=  1490.02 ns  ±22.9%  (reps=25, inner=4643)
+orig/eq_exact/4                                   min=     2.28 ns  median=     2.99 ns  mean=     3.26 ns  ±29.0%  (reps=25, inner=1024000)
+orig/eq_case/4                                    min=     4.30 ns  median=     4.43 ns  mean=     4.48 ns  ±2.9%  (reps=25, inner=1228800)
+orig/diff_at_start/4                              min=     0.88 ns  median=     0.90 ns  mean=     0.90 ns  ±2.5%  (reps=25, inner=6481012)
+orig/diff_at_mid/4                                min=     2.05 ns  median=     2.06 ns  mean=     2.07 ns  ±0.7%  (reps=25, inner=2919805)
+orig/diff_at_end/4                                min=     2.28 ns  median=     2.33 ns  mean=     2.35 ns  ±2.1%  (reps=25, inner=2553350)
+orig/eq_exact/8                                   min=     3.43 ns  median=     3.47 ns  mean=     3.48 ns  ±1.4%  (reps=25, inner=1750178)
+orig/eq_case/8                                    min=     6.87 ns  median=     7.09 ns  mean=     7.08 ns  ±1.5%  (reps=25, inner=1228800)
+orig/diff_at_start/8                              min=     0.88 ns  median=     0.90 ns  mean=     0.90 ns  ±1.7%  (reps=25, inner=6481012)
+orig/diff_at_mid/8                                min=     2.57 ns  median=     2.64 ns  mean=     2.64 ns  ±2.3%  (reps=25, inner=2268623)
+orig/diff_at_end/8                                min=     3.46 ns  median=     3.63 ns  mean=     3.84 ns  ±13.7%  (reps=25, inner=1656734)
+orig/eq_exact/16                                  min=     5.71 ns  median=     5.81 ns  mean=     5.88 ns  ±2.4%  (reps=25, inner=1024000)
+orig/eq_case/16                                   min=    13.71 ns  median=    14.09 ns  mean=    14.03 ns  ±1.6%  (reps=25, inner=423724)
+orig/diff_at_start/16                             min=     0.88 ns  median=     0.89 ns  mean=     0.91 ns  ±3.3%  (reps=25, inner=6481012)
+orig/diff_at_mid/16                               min=     3.78 ns  median=     3.91 ns  mean=     3.93 ns  ±3.0%  (reps=25, inner=1536000)
+orig/diff_at_end/16                               min=     5.76 ns  median=     6.00 ns  mean=     5.97 ns  ±2.0%  (reps=25, inner=1052775)
+orig/eq_exact/32                                  min=    10.57 ns  median=    10.64 ns  mean=    10.66 ns  ±0.7%  (reps=25, inner=801460)
+orig/eq_case/32                                   min=    27.42 ns  median=    28.24 ns  mean=    28.24 ns  ±3.3%  (reps=25, inner=211862)
+orig/diff_at_start/32                             min=     0.88 ns  median=     0.89 ns  mean=     0.90 ns  ±2.1%  (reps=25, inner=6627831)
+orig/diff_at_mid/32                               min=     6.16 ns  median=     6.20 ns  mean=     6.22 ns  ±0.9%  (reps=25, inner=970309)
+orig/diff_at_end/32                               min=    10.57 ns  median=    10.71 ns  mean=    10.71 ns  ±1.0%  (reps=25, inner=526748)
+orig/eq_exact/64                                  min=    19.74 ns  median=    21.36 ns  mean=    26.80 ns  ±49.1%  (reps=25, inner=239364)
+orig/eq_case/64                                   min=    55.46 ns  median=    56.50 ns  mean=    56.81 ns  ±2.2%  (reps=25, inner=88560)
+orig/diff_at_start/64                             min=     0.87 ns  median=     0.90 ns  mean=     0.94 ns  ±22.7%  (reps=25, inner=6342193)
+orig/diff_at_mid/64                               min=    10.69 ns  median=    10.96 ns  mean=    11.02 ns  ±3.1%  (reps=25, inner=567208)
+orig/diff_at_end/64                               min=    19.69 ns  median=    20.54 ns  mean=    20.85 ns  ±5.2%  (reps=25, inner=292571)
+orig/eq_exact/256                                 min=    83.31 ns  median=    86.35 ns  mean=    86.93 ns  ±4.0%  (reps=25, inner=65798)
+orig/eq_case/256                                  min=   230.33 ns  median=   245.74 ns  mean=   250.79 ns  ±7.8%  (reps=25, inner=25882)
+orig/diff_at_start/256                            min=     0.86 ns  median=     0.90 ns  mean=     0.90 ns  ±2.4%  (reps=25, inner=6019103)
+orig/diff_at_mid/256                              min=    48.28 ns  median=    48.63 ns  mean=    48.68 ns  ±0.7%  (reps=25, inner=126680)
+orig/diff_at_end/256                              min=    87.70 ns  median=    88.37 ns  mean=    88.57 ns  ±0.9%  (reps=25, inner=67748)
+orig/eq_exact/1024                                min=   316.73 ns  median=   327.58 ns  mean=   326.96 ns  ±1.3%  (reps=25, inner=18144)
+orig/eq_case/1024                                 min=   889.78 ns  median=   917.01 ns  mean=   916.83 ns  ±1.4%  (reps=25, inner=6000)
+orig/diff_at_start/1024                           min=     0.88 ns  median=     0.90 ns  mean=     0.90 ns  ±2.4%  (reps=25, inner=6410015)
+orig/diff_at_mid/1024                             min=   168.74 ns  median=   174.04 ns  mean=   174.08 ns  ±1.0%  (reps=25, inner=32000)
+orig/diff_at_end/1024                             min=   322.84 ns  median=   326.93 ns  mean=   327.63 ns  ±0.6%  (reps=25, inner=18285)
+orig/eq_exact/4096                                min=  1241.56 ns  median=  1248.60 ns  mean=  1252.59 ns  ±0.8%  (reps=25, inner=4800)
+orig/eq_case/4096                                 min=  3618.00 ns  median=  3647.72 ns  mean=  3656.21 ns  ±0.8%  (reps=25, inner=1636)
+orig/diff_at_start/4096                           min=     0.88 ns  median=     0.90 ns  mean=     0.92 ns  ±4.0%  (reps=25, inner=6411687)
+orig/diff_at_mid/4096                             min=   621.41 ns  median=   635.58 ns  mean=   637.69 ns  ±1.2%  (reps=25, inner=9216)
+orig/diff_at_end/4096                             min=  1219.79 ns  median=  1250.75 ns  mean=  1252.21 ns  ±1.0%  (reps=25, inner=4363)
 
 == Optimized (8-byte SWAR) ==
-opt/eq_exact/4                                    min=     1.45 ns  median=     1.52 ns  mean=     1.54 ns  ±3.8%  (reps=25, inner=3829827)
-opt/eq_case/4                                     min=     3.27 ns  median=     3.38 ns  mean=     3.41 ns  ±3.9%  (reps=25, inner=1781902)
-opt/diff_at_start/4                               min=     0.86 ns  median=     0.91 ns  mean=     0.91 ns  ±3.4%  (reps=25, inner=6779586)
-opt/diff_at_mid/4                                 min=     1.53 ns  median=     1.61 ns  mean=     1.78 ns  ±22.3%  (reps=25, inner=3985728)
-opt/diff_at_end/4                                 min=     1.77 ns  median=     1.88 ns  mean=     1.92 ns  ±6.4%  (reps=25, inner=3024738)
-opt/eq_exact/8                                    min=     0.93 ns  median=     0.97 ns  mean=     1.27 ns  ±60.2%  (reps=25, inner=9075332)
-opt/eq_case/8                                     min=     1.62 ns  median=     1.65 ns  mean=     1.66 ns  ±1.7%  (reps=25, inner=3709584)
-opt/diff_at_start/8                               min=     1.86 ns  median=     1.91 ns  mean=     1.92 ns  ±1.8%  (reps=25, inner=3137094)
-opt/diff_at_mid/8                                 min=     1.89 ns  median=     1.96 ns  mean=     1.97 ns  ±3.2%  (reps=25, inner=3120761)
-opt/diff_at_end/8                                 min=     1.92 ns  median=     2.04 ns  mean=     2.18 ns  ±21.5%  (reps=25, inner=3171096)
-opt/eq_exact/16                                   min=     1.37 ns  median=     1.43 ns  mean=     1.44 ns  ±2.2%  (reps=25, inner=4012408)
-opt/eq_case/16                                    min=     3.23 ns  median=     3.30 ns  mean=     3.31 ns  ±2.0%  (reps=25, inner=1908815)
-opt/diff_at_start/16                              min=     1.89 ns  median=     1.92 ns  mean=     1.94 ns  ±3.3%  (reps=25, inner=3154004)
-opt/diff_at_mid/16                                min=     2.26 ns  median=     2.42 ns  mean=     2.44 ns  ±5.1%  (reps=25, inner=2437128)
-opt/diff_at_end/16                                min=     2.23 ns  median=     2.32 ns  mean=     2.32 ns  ±1.6%  (reps=25, inner=2632954)
-opt/eq_exact/32                                   min=     2.29 ns  median=     2.37 ns  mean=     2.38 ns  ±1.7%  (reps=25, inner=2349971)
-opt/eq_case/32                                    min=     5.57 ns  median=     5.67 ns  mean=     5.80 ns  ±4.4%  (reps=25, inner=1053497)
-opt/diff_at_start/32                              min=     1.95 ns  median=     1.99 ns  mean=     2.02 ns  ±5.0%  (reps=25, inner=3137495)
-opt/diff_at_mid/32                                min=     2.75 ns  median=     2.82 ns  mean=     2.82 ns  ±1.7%  (reps=25, inner=2168534)
-opt/diff_at_end/32                                min=     3.23 ns  median=     3.28 ns  mean=     3.28 ns  ±1.1%  (reps=25, inner=1704654)
-opt/eq_exact/64                                   min=     4.20 ns  median=     4.28 ns  mean=     4.31 ns  ±2.3%  (reps=25, inner=1365333)
-opt/eq_case/64                                    min=    10.28 ns  median=    10.57 ns  mean=    11.03 ns  ±12.2%  (reps=25, inner=585142)
-opt/diff_at_start/64                              min=     1.89 ns  median=     1.92 ns  mean=     1.93 ns  ±1.5%  (reps=25, inner=2919805)
-opt/diff_at_mid/64                                min=     3.71 ns  median=     3.76 ns  mean=     3.79 ns  ±2.3%  (reps=25, inner=1536000)
-opt/diff_at_end/64                                min=     5.07 ns  median=     5.19 ns  mean=     5.19 ns  ±1.1%  (reps=25, inner=1152288)
-opt/eq_exact/256                                  min=    15.45 ns  median=    15.78 ns  mean=    15.83 ns  ±1.0%  (reps=25, inner=332108)
-opt/eq_case/256                                   min=    38.46 ns  median=    40.32 ns  mean=    42.10 ns  ±12.1%  (reps=25, inner=155544)
-opt/diff_at_start/256                             min=     1.90 ns  median=     1.97 ns  mean=     2.02 ns  ±6.4%  (reps=25, inner=3137495)
-opt/diff_at_mid/256                               min=     9.51 ns  median=     9.72 ns  mean=     9.83 ns  ±2.9%  (reps=25, inner=635498)
-opt/diff_at_end/256                               min=    16.60 ns  median=    16.87 ns  mean=    16.88 ns  ±1.4%  (reps=25, inner=368698)
-opt/eq_exact/1024                                 min=    64.81 ns  median=    67.88 ns  mean=    70.70 ns  ±14.0%  (reps=25, inner=82262)
-opt/eq_case/1024                                  min=   157.45 ns  median=   160.01 ns  mean=   164.85 ns  ±6.2%  (reps=25, inner=35995)
-opt/diff_at_start/1024                            min=     1.94 ns  median=     2.08 ns  mean=     2.13 ns  ±17.5%  (reps=25, inner=2978909)
-opt/diff_at_mid/1024                              min=    32.34 ns  median=    32.61 ns  mean=    32.82 ns  ±1.8%  (reps=25, inner=154885)
-opt/diff_at_end/1024                              min=    67.94 ns  median=    69.74 ns  mean=    69.99 ns  ±1.5%  (reps=25, inner=79470)
-opt/eq_exact/4096                                 min=   249.76 ns  median=   251.48 ns  mean=   253.15 ns  ±1.9%  (reps=25, inner=23512)
-opt/eq_case/4096                                  min=   608.21 ns  median=   630.21 ns  mean=   636.31 ns  ±4.3%  (reps=25, inner=9560)
-opt/diff_at_start/4096                            min=     1.92 ns  median=     2.07 ns  mean=     2.11 ns  ±11.9%  (reps=25, inner=3055956)
-opt/diff_at_mid/4096                              min=   129.74 ns  median=   131.47 ns  mean=   131.95 ns  ±1.0%  (reps=25, inner=43478)
-opt/diff_at_end/4096                              min=   252.12 ns  median=   262.21 ns  mean=   271.26 ns  ±13.6%  (reps=25, inner=23272)
+opt/eq_exact/4                                    min=     1.44 ns  median=     1.48 ns  mean=     1.48 ns  ±1.1%  (reps=25, inner=4067527)
+opt/eq_case/4                                     min=     3.27 ns  median=     3.31 ns  mean=     3.32 ns  ±1.3%  (reps=25, inner=1826125)
+opt/diff_at_start/4                               min=     0.89 ns  median=     0.90 ns  mean=     0.90 ns  ±1.8%  (reps=25, inner=6703764)
+opt/diff_at_mid/4                                 min=     1.47 ns  median=     1.48 ns  mean=     1.48 ns  ±0.8%  (reps=25, inner=3985081)
+opt/diff_at_end/4                                 min=     1.77 ns  median=     1.82 ns  mean=     1.82 ns  ±1.7%  (reps=25, inner=3205843)
+opt/eq_exact/8                                    min=     0.91 ns  median=     0.92 ns  mean=     0.93 ns  ±1.3%  (reps=25, inner=6481012)
+opt/eq_case/8                                     min=     1.61 ns  median=     1.63 ns  mean=     1.63 ns  ±1.0%  (reps=25, inner=3686215)
+opt/diff_at_start/8                               min=     1.89 ns  median=     1.91 ns  mean=     1.91 ns  ±0.7%  (reps=25, inner=3137495)
+opt/diff_at_mid/8                                 min=     1.90 ns  median=     1.91 ns  mean=     1.91 ns  ±0.7%  (reps=25, inner=3137495)
+opt/diff_at_end/8                                 min=     1.90 ns  median=     1.91 ns  mean=     1.92 ns  ±0.9%  (reps=25, inner=3104206)
+opt/eq_exact/16                                   min=     1.39 ns  median=     1.40 ns  mean=     1.41 ns  ±0.9%  (reps=25, inner=4274086)
+opt/eq_case/16                                    min=     3.17 ns  median=     3.25 ns  mean=     3.26 ns  ±1.4%  (reps=25, inner=1820444)
+opt/diff_at_start/16                              min=     1.90 ns  median=     1.91 ns  mean=     1.92 ns  ±1.1%  (reps=25, inner=3154004)
+opt/diff_at_mid/16                                min=     2.24 ns  median=     2.29 ns  mean=     2.30 ns  ±1.1%  (reps=25, inner=2621440)
+opt/diff_at_end/16                                min=     2.27 ns  median=     2.30 ns  mean=     2.31 ns  ±1.5%  (reps=25, inner=2633236)
+opt/eq_exact/32                                   min=     2.31 ns  median=     2.42 ns  mean=     3.90 ns  ±92.4%  (reps=25, inner=2397658)
+opt/eq_case/32                                    min=     5.60 ns  median=     5.79 ns  mean=     5.79 ns  ±2.5%  (reps=25, inner=1053497)
+opt/diff_at_start/32                              min=     1.87 ns  median=     1.92 ns  mean=     1.92 ns  ±1.3%  (reps=25, inner=3154408)
+opt/diff_at_mid/32                                min=     2.75 ns  median=     2.77 ns  mean=     2.77 ns  ±0.7%  (reps=25, inner=2114064)
+opt/diff_at_end/32                                min=     3.23 ns  median=     3.26 ns  mean=     3.26 ns  ±0.7%  (reps=25, inner=1860549)
+opt/eq_exact/64                                   min=     4.19 ns  median=     4.31 ns  mean=     4.32 ns  ±1.3%  (reps=25, inner=1365333)
+opt/eq_case/64                                    min=    10.27 ns  median=    10.35 ns  mean=    10.43 ns  ±1.7%  (reps=25, inner=566998)
+opt/diff_at_start/64                              min=     1.89 ns  median=     1.91 ns  mean=     1.91 ns  ±0.9%  (reps=25, inner=3154004)
+opt/diff_at_mid/64                                min=     3.71 ns  median=     3.73 ns  mean=     3.74 ns  ±1.0%  (reps=25, inner=1416974)
+opt/diff_at_end/64                                min=     5.02 ns  median=     5.17 ns  mean=     5.19 ns  ±1.5%  (reps=25, inner=1152288)
+opt/eq_exact/256                                  min=    15.28 ns  median=    15.92 ns  mean=    15.87 ns  ±1.3%  (reps=25, inner=380103)
+opt/eq_case/256                                   min=    38.76 ns  median=    39.06 ns  mean=    39.11 ns  ±0.8%  (reps=25, inner=136025)
+opt/diff_at_start/256                             min=     1.89 ns  median=     1.92 ns  mean=     1.92 ns  ±1.2%  (reps=25, inner=3154004)
+opt/diff_at_mid/256                               min=     9.43 ns  median=     9.53 ns  mean=     9.54 ns  ±1.0%  (reps=25, inner=635498)
+opt/diff_at_end/256                               min=    16.59 ns  median=    16.70 ns  mean=    16.74 ns  ±0.8%  (reps=25, inner=351085)
+opt/eq_exact/1024                                 min=    64.83 ns  median=    67.03 ns  mean=    67.15 ns  ±1.5%  (reps=25, inner=85333)
+opt/eq_case/1024                                  min=   157.41 ns  median=   158.78 ns  mean=   159.23 ns  ±0.9%  (reps=25, inner=37166)
+opt/diff_at_start/1024                            min=     1.92 ns  median=     2.00 ns  mean=     1.99 ns  ±2.5%  (reps=25, inner=3040079)
+opt/diff_at_mid/1024                              min=    32.32 ns  median=    32.55 ns  mean=    32.68 ns  ±1.2%  (reps=25, inner=152957)
+opt/diff_at_end/1024                              min=    69.16 ns  median=    69.92 ns  mean=    69.88 ns  ±0.9%  (reps=25, inner=85333)
+opt/eq_exact/4096                                 min=   249.74 ns  median=   251.91 ns  mean=   252.27 ns  ±0.8%  (reps=25, inner=23272)
+opt/eq_case/4096                                  min=   598.69 ns  median=   611.46 ns  mean=   612.72 ns  ±0.9%  (reps=25, inner=9803)
+opt/diff_at_start/4096                            min=     1.92 ns  median=     2.04 ns  mean=     2.03 ns  ±2.6%  (reps=25, inner=3024738)
+opt/diff_at_mid/4096                              min=   130.82 ns  median=   132.07 ns  mean=   132.25 ns  ±0.9%  (reps=25, inner=44300)
+opt/diff_at_end/4096                              min=   251.81 ns  median=   253.50 ns  mean=   256.60 ns  ±2.4%  (reps=25, inner=23043)
 
 == Summary (median ns/op) ==
 workload                            orig ns/op     opt ns/op   speedup     %faster
-eq_exact/4                                2.71          1.52     1.78x       43.8%
-eq_case/4                                 4.45          3.38     1.32x       24.1%
-diff_at_start/4                           0.90          0.91     0.99x       -0.9%
-diff_at_mid/4                             2.01          1.61     1.25x       20.2%
-diff_at_end/4                             2.30          1.88     1.23x       18.4%
-eq_exact/8                                3.46          0.97     3.58x       72.1%
-eq_case/8                                 7.09          1.65     4.30x       76.7%
-diff_at_start/8                           0.92          1.91     0.48x     -106.8%
-diff_at_mid/8                             2.63          1.96     1.34x       25.6%
-diff_at_end/8                             3.54          2.04     1.74x       42.4%
-eq_exact/16                               6.05          1.43     4.22x       76.3%
-eq_case/16                               14.41          3.30     4.37x       77.1%
-diff_at_start/16                          0.90          1.92     0.47x     -113.3%
-diff_at_mid/16                            3.86          2.42     1.60x       37.4%
-diff_at_end/16                            5.91          2.32     2.54x       60.7%
-eq_exact/32                              10.71          2.37     4.51x       77.8%
-eq_case/32                               28.39          5.67     5.01x       80.0%
-diff_at_start/32                          0.89          1.99     0.45x     -121.9%
-diff_at_mid/32                            6.20          2.82     2.20x       54.6%
-diff_at_end/32                           10.63          3.28     3.24x       69.1%
-eq_exact/64                              20.21          4.28     4.72x       78.8%
-eq_case/64                               57.05         10.57     5.40x       81.5%
-diff_at_start/64                          0.90          1.92     0.47x     -114.5%
-diff_at_mid/64                           10.95          3.76     2.91x       65.6%
-diff_at_end/64                           20.12          5.19     3.88x       74.2%
-eq_exact/256                             86.21         15.78     5.46x       81.7%
-eq_case/256                             234.37         40.32     5.81x       82.8%
-diff_at_start/256                         0.90          1.97     0.46x     -118.3%
-diff_at_mid/256                          48.75          9.72     5.01x       80.1%
-diff_at_end/256                          87.93         16.87     5.21x       80.8%
-eq_exact/1024                           327.21         67.88     4.82x       79.3%
-eq_case/1024                            922.39        160.01     5.76x       82.7%
-diff_at_start/1024                        0.89          2.08     0.43x     -132.6%
-diff_at_mid/1024                        174.15         32.61     5.34x       81.3%
-diff_at_end/1024                        328.30         69.74     4.71x       78.8%
-eq_exact/4096                          1261.09        251.48     5.01x       80.1%
-eq_case/4096                           3655.69        630.21     5.80x       82.8%
-diff_at_start/4096                        0.90          2.07     0.44x     -129.8%
-diff_at_mid/4096                        639.52        131.47     4.86x       79.4%
-diff_at_end/4096                       1342.87        262.21     5.12x       80.5%
+eq_exact/4                                2.99          1.48     2.02x       50.6%
+eq_case/4                                 4.43          3.31     1.34x       25.3%
+diff_at_start/4                           0.90          0.90     1.00x       -0.1%
+diff_at_mid/4                             2.06          1.48     1.39x       28.1%
+diff_at_end/4                             2.33          1.82     1.28x       21.9%
+eq_exact/8                                3.47          0.92     3.75x       73.3%
+eq_case/8                                 7.09          1.63     4.36x       77.1%
+diff_at_start/8                           0.90          1.91     0.47x     -113.2%
+diff_at_mid/8                             2.64          1.91     1.38x       27.7%
+diff_at_end/8                             3.63          1.91     1.90x       47.2%
+eq_exact/16                               5.81          1.40     4.14x       75.9%
+eq_case/16                               14.09          3.25     4.34x       76.9%
+diff_at_start/16                          0.89          1.91     0.47x     -114.8%
+diff_at_mid/16                            3.91          2.29     1.71x       41.6%
+diff_at_end/16                            6.00          2.30     2.61x       61.7%
+eq_exact/32                              10.64          2.42     4.40x       77.3%
+eq_case/32                               28.24          5.79     4.88x       79.5%
+diff_at_start/32                          0.89          1.92     0.47x     -114.5%
+diff_at_mid/32                            6.20          2.77     2.24x       55.4%
+diff_at_end/32                           10.71          3.26     3.29x       69.6%
+eq_exact/64                              21.36          4.31     4.95x       79.8%
+eq_case/64                               56.50         10.35     5.46x       81.7%
+diff_at_start/64                          0.90          1.91     0.47x     -112.6%
+diff_at_mid/64                           10.96          3.73     2.94x       66.0%
+diff_at_end/64                           20.54          5.17     3.97x       74.8%
+eq_exact/256                             86.35         15.92     5.43x       81.6%
+eq_case/256                             245.74         39.06     6.29x       84.1%
+diff_at_start/256                         0.90          1.92     0.47x     -114.4%
+diff_at_mid/256                          48.63          9.53     5.10x       80.4%
+diff_at_end/256                          88.37         16.70     5.29x       81.1%
+eq_exact/1024                           327.58         67.03     4.89x       79.5%
+eq_case/1024                            917.01        158.78     5.78x       82.7%
+diff_at_start/1024                        0.90          2.00     0.45x     -122.9%
+diff_at_mid/1024                        174.04         32.55     5.35x       81.3%
+diff_at_end/1024                        326.93         69.92     4.68x       78.6%
+eq_exact/4096                          1248.60        251.91     4.96x       79.8%
+eq_case/4096                           3647.72        611.46     5.97x       83.2%
+diff_at_start/4096                        0.90          2.04     0.44x     -126.0%
+diff_at_mid/4096                        635.58        132.07     4.81x       79.2%
+diff_at_end/4096                       1250.75        253.50     4.93x       79.7%

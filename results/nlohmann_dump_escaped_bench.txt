@@ -1,63 +1,63 @@
 == Baseline (nlohmann::json dump_escaped, byte DFA loop) ==
-orig/clean/8                                      min=    23.83 ns  median=    26.65 ns  mean=    29.40 ns  ±23.6%  (reps=25, inner=106238)
-orig/one_escape/8                                 min=    25.87 ns  median=    26.54 ns  mean=    27.14 ns  ±4.7%  (reps=25, inner=231849)
-orig/utf8/8                                       min=    77.99 ns  median=    78.80 ns  mean=    78.78 ns  ±0.7%  (reps=25, inner=76800)
-orig/clean/32                                     min=   119.00 ns  median=   119.87 ns  mean=   120.09 ns  ±0.8%  (reps=25, inner=49029)
-orig/one_escape/32                                min=   127.59 ns  median=   128.96 ns  mean=   129.04 ns  ±0.9%  (reps=25, inner=47012)
-orig/quotes/32                                    min=   137.62 ns  median=   139.19 ns  mean=   209.32 ns  ±62.0%  (reps=25, inner=43458)
-orig/utf8/32                                      min=   290.20 ns  median=   301.74 ns  mean=   323.04 ns  ±20.6%  (reps=25, inner=9974)
-orig/clean/128                                    min=   400.20 ns  median=   406.08 ns  mean=   408.02 ns  ±1.5%  (reps=25, inner=14960)
-orig/one_escape/128                               min=   409.61 ns  median=   412.40 ns  mean=   413.12 ns  ±0.7%  (reps=25, inner=20848)
-orig/quotes/128                                   min=   516.60 ns  median=   518.96 ns  mean=   520.64 ns  ±0.6%  (reps=25, inner=11636)
-orig/utf8/128                                     min=   974.65 ns  median=   981.59 ns  mean=   984.61 ns  ±0.9%  (reps=25, inner=6000)
-orig/clean/512                                    min=  1567.00 ns  median=  1580.30 ns  mean=  1587.12 ns  ±1.1%  (reps=25, inner=3599)
-orig/one_escape/512                               min=  1568.05 ns  median=  1584.61 ns  mean=  1591.00 ns  ±1.0%  (reps=25, inner=3692)
-orig/quotes/512                                   min=  1882.82 ns  median=  1909.30 ns  mean=  1912.62 ns  ±1.2%  (reps=25, inner=3129)
-orig/utf8/512                                     min=  3545.67 ns  median=  3572.23 ns  mean=  3585.08 ns  ±0.8%  (reps=25, inner=1636)
-orig/clean/2048                                   min=  6069.77 ns  median=  6294.03 ns  mean=  6396.86 ns  ±5.2%  (reps=25, inner=986)
-orig/one_escape/2048                              min=  6056.33 ns  median=  6125.51 ns  mean=  6133.43 ns  ±1.2%  (reps=25, inner=986)
-orig/quotes/2048                                  min=  7310.22 ns  median=  7355.38 ns  mean=  7380.49 ns  ±1.0%  (reps=25, inner=822)
-orig/utf8/2048                                    min= 13826.34 ns  median= 13959.20 ns  mean= 14135.00 ns  ±2.8%  (reps=25, inner=435)
+orig/clean/8                                      min=    23.85 ns  median=    28.46 ns  mean=    30.45 ns  ±23.3%  (reps=25, inner=92219)
+orig/one_escape/8                                 min=    25.81 ns  median=    26.18 ns  mean=    26.29 ns  ±1.8%  (reps=25, inner=231849)
+orig/utf8/8                                       min=    77.61 ns  median=    78.05 ns  mean=    78.41 ns  ±1.2%  (reps=25, inner=74360)
+orig/clean/32                                     min=   118.71 ns  median=   119.43 ns  mean=   119.92 ns  ±0.9%  (reps=25, inner=50078)
+orig/one_escape/32                                min=   127.34 ns  median=   129.14 ns  mean=   129.70 ns  ±1.5%  (reps=25, inner=46087)
+orig/quotes/32                                    min=   137.69 ns  median=   140.19 ns  mean=   140.37 ns  ±1.2%  (reps=25, inner=41903)
+orig/utf8/32                                      min=   289.97 ns  median=   292.25 ns  mean=   292.65 ns  ±0.8%  (reps=25, inner=20574)
+orig/clean/128                                    min=   399.86 ns  median=   403.68 ns  mean=   404.83 ns  ±1.1%  (reps=25, inner=14960)
+orig/one_escape/128                               min=   408.69 ns  median=   410.78 ns  mean=   411.80 ns  ±0.8%  (reps=25, inner=14580)
+orig/quotes/128                                   min=   515.87 ns  median=   518.73 ns  mean=   519.87 ns  ±0.9%  (reps=25, inner=11578)
+orig/utf8/128                                     min=   975.85 ns  median=   982.68 ns  mean=   985.01 ns  ±1.0%  (reps=25, inner=5758)
+orig/clean/512                                    min=  1563.09 ns  median=  1570.77 ns  mean=  1575.40 ns  ±0.8%  (reps=25, inner=3692)
+orig/one_escape/512                               min=  1576.34 ns  median=  1584.39 ns  mean=  1589.38 ns  ±0.8%  (reps=25, inner=3692)
+orig/quotes/512                                   min=  1896.09 ns  median=  1909.19 ns  mean=  1913.84 ns  ±0.9%  (reps=25, inner=3131)
+orig/utf8/512                                     min=  3551.44 ns  median=  3587.56 ns  mean=  3597.91 ns  ±1.2%  (reps=25, inner=1655)
+orig/clean/2048                                   min=  6050.52 ns  median=  6098.31 ns  mean=  6120.77 ns  ±1.2%  (reps=25, inner=979)
+orig/one_escape/2048                              min=  6057.47 ns  median=  6097.70 ns  mean=  6111.69 ns  ±0.8%  (reps=25, inner=986)
+orig/quotes/2048                                  min=  7311.10 ns  median=  7349.50 ns  mean=  7370.52 ns  ±0.9%  (reps=25, inner=804)
+orig/utf8/2048                                    min= 13767.22 ns  median= 13846.71 ns  mean= 13903.56 ns  ±0.9%  (reps=25, inner=433)
 
 == Optimized (fast-path scan + memcpy) ==
-opt/clean/8                                       min=     7.66 ns  median=     7.76 ns  mean=     7.77 ns  ±1.0%  (reps=25, inner=784073)
-opt/one_escape/8                                  min=    27.62 ns  median=    27.99 ns  mean=    28.09 ns  ±1.6%  (reps=25, inner=194012)
-opt/utf8/8                                        min=    77.92 ns  median=    78.82 ns  mean=    79.04 ns  ±1.2%  (reps=25, inner=74303)
-opt/clean/32                                      min=    39.34 ns  median=    39.68 ns  mean=    39.75 ns  ±0.8%  (reps=25, inner=150470)
-opt/one_escape/32                                 min=   139.07 ns  median=   141.58 ns  mean=   141.91 ns  ±1.2%  (reps=25, inner=40421)
-opt/quotes/32                                     min=   148.50 ns  median=   152.03 ns  mean=   151.86 ns  ±1.3%  (reps=25, inner=38400)
-opt/utf8/32                                       min=   292.86 ns  median=   295.16 ns  mean=   295.88 ns  ±0.9%  (reps=25, inner=20033)
-opt/clean/128                                     min=   111.20 ns  median=   112.54 ns  mean=   112.72 ns  ±1.3%  (reps=25, inner=50104)
-opt/one_escape/128                                min=   453.46 ns  median=   456.66 ns  mean=   458.15 ns  ±0.8%  (reps=25, inner=12799)
-opt/quotes/128                                    min=   524.39 ns  median=   533.64 ns  mean=   533.82 ns  ±1.2%  (reps=25, inner=11183)
-opt/utf8/128                                      min=   973.46 ns  median=   978.07 ns  mean=   981.87 ns  ±0.9%  (reps=25, inner=5758)
-opt/clean/512                                     min=   408.12 ns  median=   411.37 ns  mean=   412.75 ns  ±1.2%  (reps=25, inner=14583)
-opt/one_escape/512                                min=  1761.97 ns  median=  1769.77 ns  mean=  1774.89 ns  ±0.9%  (reps=25, inner=3199)
-opt/quotes/512                                    min=  1903.21 ns  median=  1912.56 ns  mean=  1918.43 ns  ±0.8%  (reps=25, inner=3062)
-opt/utf8/512                                      min=  3552.06 ns  median=  3583.89 ns  mean=  3603.85 ns  ±1.3%  (reps=25, inner=1655)
-opt/clean/2048                                    min=  1489.90 ns  median=  1498.02 ns  mean=  1503.22 ns  ±0.9%  (reps=25, inner=3790)
-opt/one_escape/2048                               min=  6784.26 ns  median=  6813.66 ns  mean=  6837.70 ns  ±0.9%  (reps=25, inner=883)
-opt/quotes/2048                                   min=  7322.79 ns  median=  7349.33 ns  mean=  7371.76 ns  ±0.7%  (reps=25, inner=818)
-opt/utf8/2048                                     min= 13801.02 ns  median= 13935.87 ns  mean= 13953.54 ns  ±0.9%  (reps=25, inner=423)
+opt/clean/8                                       min=     7.52 ns  median=     7.73 ns  mean=     7.72 ns  ±1.1%  (reps=25, inner=768000)
+opt/one_escape/8                                  min=    27.63 ns  median=    27.94 ns  mean=    28.01 ns  ±1.0%  (reps=25, inner=215578)
+opt/utf8/8                                        min=    78.06 ns  median=    78.82 ns  mean=    79.23 ns  ±1.5%  (reps=25, inner=64000)
+opt/clean/32                                      min=    39.34 ns  median=    39.66 ns  mean=    39.69 ns  ±0.6%  (reps=25, inner=152320)
+opt/one_escape/32                                 min=   138.95 ns  median=   140.05 ns  mean=   140.40 ns  ±1.0%  (reps=25, inner=41884)
+opt/quotes/32                                     min=   148.14 ns  median=   150.16 ns  mean=   150.36 ns  ±0.9%  (reps=25, inner=38400)
+opt/utf8/32                                       min=   290.39 ns  median=   292.52 ns  mean=   293.12 ns  ±1.0%  (reps=25, inner=20386)
+opt/clean/128                                     min=   110.71 ns  median=   111.27 ns  mean=   111.55 ns  ±0.8%  (reps=25, inner=51199)
+opt/one_escape/128                                min=   453.21 ns  median=   458.23 ns  mean=   459.48 ns  ±1.1%  (reps=25, inner=13091)
+opt/quotes/128                                    min=   524.13 ns  median=   539.82 ns  mean=   542.64 ns  ±2.5%  (reps=25, inner=11024)
+opt/utf8/128                                      min=   980.55 ns  median=  1022.15 ns  mean=  1067.11 ns  ±13.1%  (reps=25, inner=5763)
+opt/clean/512                                     min=   408.92 ns  median=   428.93 ns  mean=   437.88 ns  ±6.7%  (reps=25, inner=20848)
+opt/one_escape/512                                min=  1777.97 ns  median=  1814.92 ns  mean=  1854.76 ns  ±5.1%  (reps=25, inner=3131)
+opt/quotes/512                                    min=  1907.87 ns  median=  1939.36 ns  mean=  1953.18 ns  ±2.0%  (reps=25, inner=3064)
+opt/utf8/512                                      min=  3570.04 ns  median=  3593.82 ns  mean=  3624.95 ns  ±2.2%  (reps=25, inner=2360)
+opt/clean/2048                                    min=  1448.96 ns  median=  1498.75 ns  mean=  1582.40 ns  ±13.5%  (reps=25, inner=3692)
+opt/one_escape/2048                               min=  6862.88 ns  median=  7232.38 ns  mean= 10189.07 ns  ±76.4%  (reps=25, inner=818)
+opt/quotes/2048                                   min=  7402.47 ns  median=  7802.63 ns  mean=  7981.38 ns  ±10.3%  (reps=25, inner=813)
+opt/utf8/2048                                     min= 13819.83 ns  median= 14089.03 ns  mean= 14147.34 ns  ±1.6%  (reps=25, inner=432)
 
 == Summary (median ns/op) ==
 workload                        orig ns/op     opt ns/op   speedup     %faster
-clean/8                              26.65          7.76     3.44x       70.9%
-one_escape/8                         26.54         27.99     0.95x       -5.4%
-utf8/8                               78.80         78.82     1.00x       -0.0%
-clean/32                            119.87         39.68     3.02x       66.9%
-one_escape/32                       128.96        141.58     0.91x       -9.8%
-quotes/32                           139.19        152.03     0.92x       -9.2%
-utf8/32                             301.74        295.16     1.02x        2.2%
-clean/128                           406.08        112.54     3.61x       72.3%
-one_escape/128                      412.40        456.66     0.90x      -10.7%
-quotes/128                          518.96        533.64     0.97x       -2.8%
-utf8/128                            981.59        978.07     1.00x        0.4%
-clean/512                          1580.30        411.37     3.84x       74.0%
-one_escape/512                     1584.61       1769.77     0.90x      -11.7%
-quotes/512                         1909.30       1912.56     1.00x       -0.2%
-utf8/512                           3572.23       3583.89     1.00x       -0.3%
-clean/2048                         6294.03       1498.02     4.20x       76.2%
-one_escape/2048                    6125.51       6813.66     0.90x      -11.2%
-quotes/2048                        7355.38       7349.33     1.00x        0.1%
-utf8/2048                         13959.20      13935.87     1.00x        0.2%
+clean/8                              28.46          7.73     3.68x       72.9%
+one_escape/8                         26.18         27.94     0.94x       -6.7%
+utf8/8                               78.05         78.82     0.99x       -1.0%
+clean/32                            119.43         39.66     3.01x       66.8%
+one_escape/32                       129.14        140.05     0.92x       -8.4%
+quotes/32                           140.19        150.16     0.93x       -7.1%
+utf8/32                             292.25        292.52     1.00x       -0.1%
+clean/128                           403.68        111.27     3.63x       72.4%
+one_escape/128                      410.78        458.23     0.90x      -11.6%
+quotes/128                          518.73        539.82     0.96x       -4.1%
+utf8/128                            982.68       1022.15     0.96x       -4.0%
+clean/512                          1570.77        428.93     3.66x       72.7%
+one_escape/512                     1584.39       1814.92     0.87x      -14.5%
+quotes/512                         1909.19       1939.36     0.98x       -1.6%
+utf8/512                           3587.56       3593.82     1.00x       -0.2%
+clean/2048                         6098.31       1498.75     4.07x       75.4%
+one_escape/2048                    6097.70       7232.38     0.84x      -18.6%
+quotes/2048                        7349.50       7802.63     0.94x       -6.2%
+utf8/2048                         13846.71      14089.03     0.98x       -1.7%
