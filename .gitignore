@@ -1,0 +1,8 @@
+# Cloned upstream libraries — reproducible via ./bootstrap.sh, not checked in.
+third_party/
+
+# Build artifacts
+*.o
+*.a
+*.dSYM/
+build/
