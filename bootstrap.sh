@@ -20,6 +20,8 @@ clone_shallow() {
 
 clone_shallow https://github.com/abseil/abseil-cpp.git abseil-cpp
 clone_shallow https://github.com/fmtlib/fmt.git         fmt
+clone_shallow https://github.com/gabime/spdlog.git      spdlog
+clone_shallow https://github.com/nlohmann/json.git      nlohmann-json
 
 echo
 echo "Done. See README.md for how to build and run the benchmarks."

@@ -3,16 +3,16 @@
 // Design notes:
 //   * Uses std::chrono::steady_clock. On Apple Silicon this maps to mach
 //     absolute time, which is a monotonic system timer with ~41ns tick on M1/M2.
-//   * DoNotOptimize / ClobberMemory are lifted from Google Benchmark's Chandler
-//     Carruth talk. They stop the optimizer from folding the timed region away
-//     without adding real work.
+//   * DoNotOptimize / ClobberMemory follow the "empty inline asm with a memory
+//     clobber" pattern that most modern benchmark harnesses use. They stop the
+//     optimizer from folding the timed region away without adding real work.
 //   * Runs multiple repetitions of a fixed inner-iteration count, reports
 //     median (robust to outliers), min (best case, closest to true cost), and
 //     %-stdev over repetitions. All timings are per-op (ns/op).
 //   * Autotunes inner iteration count so each repetition takes ~5ms, which is
 //     long enough to swamp timer noise but short enough to run many reps.
 //
-// Not a replacement for google-benchmark, but sufficient for stable
+// Not a replacement for a full benchmark framework, but sufficient for stable
 // microbench comparisons of small hot functions on a quiet machine.
 
 #pragma once

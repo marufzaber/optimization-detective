@@ -2,7 +2,7 @@
 # run_all.sh — Build and run every correctness test and benchmark.
 #
 # Requires: any recent clang++ or g++ with -std=c++17 support. No cmake,
-# no google-benchmark, no external libraries.
+# no external benchmark framework, no external libraries.
 
 set -euo pipefail
 cd "$(dirname "$0")"
