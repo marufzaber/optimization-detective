@@ -1,6 +1,14 @@
 # Findings
 
-Three optimizations against `abseil-cpp@7e706921` (cloned 2026-08-16). Every claim is backed by a microbenchmark on Apple M2, macOS 24.5, Apple clang 14, `-std=c++17 -O3`. Reproduction steps and raw output in [`results/`](results/).
+**TL;DR — Three drop-in optimizations to Abseil, Google's C++ common library, that make three hot string primitives up to 6.87× faster with zero correctness regressions across 150,000+ fuzzed inputs. Envoy alone (the service-mesh proxy behind Cloudflare, Airbnb, Lyft, Stripe, and Google Cloud Traffic Director) has 58 call sites in its HTTP hot path that would benefit. Napkin math puts the value at ~$170 k/year for a mid-large tech co (1 M cores) and ~$1.7 M/year plus ~8,500 tCO₂e avoided at hyperscaler scale (10 M cores) — from a single afternoon of reading one already-well-tuned open-source library.**
+
+The three wins:
+
+- **`absl::strings_internal::memcasecmp`** (backing `EqualsIgnoreCase`, called on every HTTP-header lookup in Envoy, gRPC, and XLA — 100+ call sites across those three alone): **5.98× faster** on 256-byte case-only-different input via an 8-byte SWAR ASCII lowercaser. Even the exact-match fast path (canonical strings on both sides — the extremely common case) is **5× faster** at 4 KB.
+- **`absl::FindLongestCommonSuffix`** (byte-by-byte in the same file where `FindLongestCommonPrefix` was already word-optimized — a clear asymmetric-care miss): **6.87× faster** on 256 B by mirroring the 8-byte-plus-`countl_zero` pattern the prefix version had used since day one.
+- **`absl::RemoveExtraAsciiWhitespace`** (called every time Envoy signs an outbound AWS SigV4 request): **1.40× faster** on already-clean 4 KB inputs via a read-only pre-scan that skips the byte-loop rewrite when nothing needs to change.
+
+Every claim below is backed by a microbenchmark on Apple M2, macOS 24.5, Apple clang 14, `-std=c++17 -O3`. Reproduction steps and raw output in [`results/`](results/). Three optimizations against `abseil-cpp@7e706921` (cloned 2026-08-16).
 
 **Table of contents**
 - [Methodology](#methodology)
