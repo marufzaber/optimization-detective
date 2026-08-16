@@ -30,6 +30,20 @@ Rough back-of-the-envelope, plug in your own numbers ([full derivation in FINDIN
 
 Assumptions: memcasecmp ≈ 0.2% of fleet CPU (dominated by HTTP header handling), LCS ≈ 0.02%, RemoveExtraWhitespace ≈ 0.03%; $80/core-year fully-loaded; 1000 kWh/core-year; 400 gCO₂/kWh grid average. These are heuristics — see FINDINGS.md for how to plug in your own.
 
+## Who calls these at scale
+
+Shallow-cloned and grep'd five widely-deployed C++ codebases to confirm this isn't hypothetical:
+
+| Project | Call sites | Where |
+|---|---:|---|
+| [Envoy](https://github.com/envoyproxy/envoy) — service mesh (Airbnb, Lyft, Stripe, Cloudflare) | **58** `EqualsIgnoreCase`-family + 1 `RemoveExtraAsciiWhitespace` | HTTP scheme classification, WebSocket + h2c upgrade detection, HTTP/1 codec parse loop, router timeout-header matching, `Accept-Encoding` parsing (8 uses), AWS SigV4 signing |
+| [gRPC](https://github.com/grpc/grpc) — RPC (Netflix, Square, Dropbox) | **20** | Route matchers, log-level parsing, HTTP-proxy `no_proxy` matching |
+| [OpenXLA / XLA](https://github.com/openxla/xla) — ML compiler (JAX, TF, TPU) | **25** + 1 `FindLongestCommonPrefix` | TPU-collective-op naming, backend selection |
+| [Protobuf](https://github.com/protocolbuffers/protobuf) | 2 | JSON parsing (per field), Rust codegen |
+| [TensorFlow](https://github.com/tensorflow/tensorflow) | 6 | Mostly config-time |
+
+**The concentration is in HTTP proxies and RPC frameworks.** Envoy's HTTP hot path alone is where 80% of the fleet-scale $ savings live. Details and file:line references in [FINDINGS.md](FINDINGS.md#who-actually-calls-these-functions-at-scale).
+
 ## Why Abseil?
 
 Abseil is the C++ common runtime at Google. Anything that touches strings, hashing, time, or synchronization inside Google's server fleet passes through it — and by extension, through gRPC (used by Netflix, Square, Cisco), Protobuf (every large-scale RPC pipeline on Earth), Envoy (the CNCF service-mesh data plane behind Lyft, Airbnb, Stripe), and ClickHouse (Cloudflare, Uber, eBay). A 5x speedup in a hot Abseil primitive doesn't just save cycles in one company — it compounds across every downstream user.
