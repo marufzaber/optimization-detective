@@ -1,89 +1,71 @@
 # LinkedIn post
 
-_A few length variants — pick one. LinkedIn's soft "see more" fold is around 210 characters on mobile, so the first 2–3 lines matter most._
+_LinkedIn's mobile fold cuts off around the 210th character. The first line is engineered for that._
 
 ---
 
-## Version A — Full post (~1,700 chars)
+## The post
 
-I spent one afternoon reading the source of open-source C++ libraries that power the internet.
+**An LLM coding agent, pointed at common utility functions in popular open-source C++ libraries, can save hyperscalers hundreds of millions of dollars a year in compute cost and CO₂ — and it takes an afternoon, not a quarter.**
 
-I found **5 simple optimizations across 3 libraries**. Speedups: 1.4× to 6.87×. Zero correctness regressions across 293,000 fuzzed tests.
+One lazy Sunday I turned Claude loose on **Abseil, nlohmann/json, cpp-httplib, spdlog, fmt, and RE2** — the string / JSON / HTTP / logging / regex primitives that ship inside almost every non-trivial C++ backend written in the last five years.
 
-None of the changes required deep C++ expertise. A few are borderline embarrassing.
+The downstream software these libraries sit under is software you've almost certainly touched today:
 
-Here's what I shipped:
+→ **Envoy** — service mesh at Cloudflare, Airbnb, Lyft, Stripe, Uber, Snowflake (58 call sites for the functions I looked at)
+→ **gRPC** — RPC framework at Netflix, Square, Cisco, Dropbox (20 call sites)
+→ **OpenXLA / TensorFlow** — ML infra (25+ call sites)
+→ **nlohmann/json** — ~44 k stars, the JSON library for C++
+→ **cpp-httplib** — ~15 k stars, ubiquitous in developer tools, IoT firmware, game servers
 
-**Abseil** — the C++ common library used by gRPC, Envoy, Protobuf, OpenXLA, TensorFlow (i.e. basically every large-scale C++ backend):
-→ Case-insensitive string compare (called on every HTTP header lookup): **5.98× faster** by comparing 8 bytes at once instead of one at a time
-→ "Longest common suffix" (byte-by-byte, while the sibling "longest common prefix" function was already 8-bytes-at-a-time — nobody had noticed): **6.87× faster**
-→ "Remove extra whitespace" always rewrites the string, even when the input is already clean: **1.40× faster** by checking first
+In one session Claude surfaced **5 optimizations** with speedups from **1.40× to 6.87×**, each verified against the original bit-for-bit across **293,000 fuzzed test cases** — zero regressions.
 
-**nlohmann/json** — the most-starred C++ JSON library on GitHub (~44k stars):
-→ Every JSON string emitted runs a UTF-8 decoder character-by-character. Most strings have no special characters. **4.62× faster** by checking first and skipping the decoder.
+Conservative fleet-scale math:
+- **1 M cores (large tech co):** ~$21 k/year and ~100 tCO₂e avoided
+- **10 M cores (hyperscaler-tier internal fleet):** ~$214 k/year and ~1,000 tCO₂e avoided
+- Single dominant caller (Envoy `memcasecmp` at a large edge fleet) alone: **~$63 k/year**
 
-**cpp-httplib** — the most popular single-header C++ HTTP library (~15k stars):
-→ The HTTP-header hash function is implemented using **recursion**. Every character of "Content-Type" pushes a call frame. **1.44× faster** by changing recursion to a `for` loop. Same hash values.
+And that's from **just 5 functions**. Extrapolate an LLM-driven sweep across the full surface of every popular C++ and Java library and the industry-wide number is easily **hundreds of millions of dollars and tens of thousands of tCO₂e per year** sitting on the table.
 
-**💰 Real-world impact (conservative):**
-- 100 k cores → ~$2 k/year + ~10 tCO₂e avoided
-- 1 M cores → ~$21 k/year + ~100 tCO₂e
-- 10 M cores (hyperscaler-tier) → ~$214 k/year + ~1,000 tCO₂e
-- Envoy's `memcasecmp` alone at a large edge fleet: ~$63 k/year
+**Every one of the wins was embarrassingly simple.** Two examples:
 
-**Companies that would benefit today:** Cloudflare, Airbnb, Lyft, Stripe, Uber, Netflix, Square, Dropbox, Cisco — anyone running Envoy, gRPC, nlohmann/json, or cpp-httplib in production.
+**(1) Abseil's `FindLongestCommonSuffix`** walked strings 1 byte at a time. Its sibling `FindLongestCommonPrefix` in the exact same file was already 8-bytes-at-a-time using `countr_zero`. Nobody had noticed the asymmetry. Fix: mirror the prefix version. → **6.87× faster**
 
-**Scale this thinking across every popular C++ and Java library** and the industry-wide number is easily **hundreds of millions of dollars** and tens of thousands of tCO₂e per year, sitting on the table for someone to pick up.
+**(2) cpp-httplib's HTTP-header hash** is implemented using **recursion**. Every character of `"Content-Type"` pushes a fresh call frame. Tail-call optimization may or may not fire depending on opt level and ABI. Fix: change recursion to a `for` loop. Same hash values, bit-identical. → **1.44× faster**
 
-The meta-lesson: modern compilers are stunningly good, but they still can't spot the case where one function got optimized but its sibling didn't.
+⚠️ **Important caveat.** LLM-proposed optimizations are safe in the microbenchmark harness — but "microbench-safe" is not "ship-to-prod-safe". Every LLM-produced patch still needs manual validation with:
 
-Full findings, benchmarks, and reproduction:
+• **Differential fuzzing** with structural mutators (libFuzzer / AFL++ / Honggfuzz) under **ASan, UBSan, MSan, and TSan**, to catch UB, alignment, and thread-safety corner cases the microbench doesn't exercise
+• **Cross-ISA validation** on real target platforms — x86-64 SSE4.2 / AVX2, ARM64 NEON / SVE, PPC64LE, RISC-V — since SWAR carry-safety, endianness assumptions, and unaligned-load semantics vary across ISAs
+• **Property-based refinement checks** (`f_opt(x) ≡ f_orig(x) ∀ x` in the declared domain), ideally strengthened with symbolic execution via KLEE or SMT-backed equivalence proofs for the more delicate SWAR / bit-hack transforms
+• **Full-library regression suites** — not just the extracted-function unit tests — to catch inlining, codegen, and TU-boundary interactions the extraction stripped away
+• **Human code review by the library maintainers**, who know the ABI stability contracts, consumer invariants, and platform allowlists that neither the LLM nor the fuzzer will guess
+
+The takeaway: LLM-driven optimization discovery is real leverage. But the LLM is half the pipeline. Coverage-guided differential fuzzing + cross-ISA validation + maintainer review is the other half, and it's not optional.
+
+Full findings, benchmarks, safety analysis, fleet-scale math, and reproducible code:
 👉 https://github.com/marufzaber/optimization-detective
 
-Which library would you dig into next?
+Which library would you point a coding agent at next?
+
+`#cpp #performance #llm #opensource #claudecode`
 
 ---
 
-## Version B — Short post (~800 chars, for the "no scrolling" crowd)
+## Short variant (~750 chars — if you want the first-comment-link strategy for reach)
 
-I spent one afternoon reading open-source C++ libraries and found **5 simple optimizations** worth ~$214 k/year at hyperscaler scale.
+**An LLM coding agent on common utility C++ functions can save hyperscalers hundreds of millions of dollars a year.**
 
-Some are borderline embarrassing:
+One lazy Sunday I turned Claude loose on Abseil, nlohmann/json, cpp-httplib, spdlog, fmt, RE2 — the string / JSON / HTTP / log primitives inside Envoy (Cloudflare, Airbnb, Lyft, Stripe), gRPC (Netflix, Square, Dropbox), OpenXLA, and countless internal C++ services.
 
-• **Abseil** — one function compared strings 8 bytes at a time; its sibling did it 1 byte at a time. Fix: write the missing sibling. → **6.87× faster**
-• **Abseil** — case-insensitive HTTP header compare, one letter at a time. Fix: compare 8 at once. → **5.98× faster**
-• **nlohmann/json** — every JSON string runs a full UTF-8 decoder. Most strings don't need it. Fix: check first. → **4.62× faster**
-• **cpp-httplib** — HTTP-header hash is written using recursion. Fix: change to a `for` loop. → **1.44× faster**
+Result: **5 optimizations, 1.40× to 6.87× faster, 293k fuzzed tests, 0 regressions.**
 
-Zero correctness regressions across 293,000 fuzzed tests.
+Two examples:
+→ Abseil's suffix-compare walked 1 byte at a time; its sibling prefix-compare was already 8-at-a-time. → **6.87× faster**
+→ cpp-httplib's HTTP-header hash was implemented using **recursion**. Change to a `for` loop. → **1.44× faster**
 
-Companies affected: Cloudflare, Airbnb, Lyft, Stripe, Netflix, Square, Dropbox — anyone running Envoy, gRPC, or these libraries.
+Conservative: ~$214 k/year saved at 10 M-core hyperscaler scale, from just 5 functions. Scale to the full surface of every popular C++/Java library → **hundreds of millions per year** on the table.
 
-Scale this thinking across every popular C++ and Java library and the industry-wide number is easily hundreds of millions of dollars a year sitting on the table.
+Caveat: LLM output still requires differential fuzzing under ASan/UBSan/MSan, cross-ISA validation, property-based refinement checks, and human review before it ships. Half-pipeline; not the whole pipeline.
 
-Full write-up + benchmarks: https://github.com/marufzaber/optimization-detective
-
----
-
-## Version C — Punchy opener (~350 chars, if you want to lead with a hook and put the rest in the comments)
-
-Modern C++ compilers are stunningly good. Here are 5 optimizations I found in one afternoon that they still missed:
-
-→ Abseil's suffix compare: **6.87× faster** (its sibling function was already optimized)
-→ Abseil case-insensitive compare: **5.98× faster**
-→ nlohmann/json string encoder: **4.62× faster**
-→ cpp-httplib hash (change recursion to for-loop): **1.44× faster**
-
-Companies affected: Cloudflare, Airbnb, Lyft, Stripe, Netflix, Square, Uber.
-
-Full write-up + reproducible benchmarks in the first comment 👇
-
----
-
-## Posting tips
-
-- **Post time:** Tuesday/Wednesday morning US-Eastern typically gets 1.5–2× the reach of weekend posts on engineering topics.
-- **First 2 lines fight for the fold** — LinkedIn shows only the first ~210 characters on mobile before "see more". Version A's first two lines are engineered for that.
-- **Image:** attach `photocard.svg` (or export to PNG at 1200×1200 — LinkedIn accepts SVG in some clients but PNG is safer).
-- **Repo link:** LinkedIn deprioritizes posts that link out. Put the repo link in the first comment instead of the post body for ~2–3× more views (Version C is set up for this).
-- **Tags:** `#cpp #performance #opensource #systemsengineering` — first three catch the largest audience; skip the rest.
+Repo (findings, benchmarks, safety analysis) in the first comment 👇
