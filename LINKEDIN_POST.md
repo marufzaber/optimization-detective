@@ -52,20 +52,10 @@ Which library would you point a coding agent at next?
 
 ---
 
-## Short variant (~750 chars — if you want the first-comment-link strategy for reach)
+## Short variant (2 paragraphs, prose — for the first-comment-link reach strategy)
 
-**An LLM coding agent on common utility C++ functions can save hyperscalers hundreds of millions of dollars a year.**
+**An LLM coding agent, pointed at common utility C++ functions, can save hyperscalers hundreds of millions of dollars a year in compute and CO₂.** One lazy Sunday I turned Claude loose on Abseil, nlohmann/json, cpp-httplib, spdlog, fmt, and RE2 — the string / JSON / HTTP / log / regex primitives that ship inside Envoy (Cloudflare, Airbnb, Lyft, Stripe, Uber), gRPC (Netflix, Square, Cisco, Dropbox), OpenXLA, and effectively every non-trivial C++ backend written in the last five years. In one session Claude surfaced 5 optimizations with speedups from 1.40× to 6.87×, each verified against the original code bit-for-bit across 293,000 fuzzed inputs with zero regressions. The wins were embarrassingly simple: Abseil's `FindLongestCommonSuffix` walked strings one byte at a time while its sibling `FindLongestCommonPrefix` in the same file was already 8-bytes-at-a-time — nobody had noticed the asymmetry, and mirroring it made the suffix version 6.87× faster; cpp-httplib's HTTP-header hash function was implemented using recursion (one call frame per character of `"Content-Type"`), and changing it to a `for` loop produced bit-identical hashes 1.44× faster.
 
-One lazy Sunday I turned Claude loose on Abseil, nlohmann/json, cpp-httplib, spdlog, fmt, RE2 — the string / JSON / HTTP / log primitives inside Envoy (Cloudflare, Airbnb, Lyft, Stripe), gRPC (Netflix, Square, Dropbox), OpenXLA, and countless internal C++ services.
+Conservative fleet-scale math lands at ~$214 k/year and ~1,000 tCO₂e avoided at 10 M-core hyperscaler scale — from just 5 functions. Extrapolate an LLM-driven sweep across the full surface of every popular C++ and Java library, and the industry-wide number is easily hundreds of millions of dollars and tens of thousands of tCO₂e per year sitting on the table. The important caveat: LLM-proposed optimizations are microbenchmark-safe, not automatically ship-to-prod-safe. Every patch still needs manual validation — differential fuzzing under ASan/UBSan/MSan/TSan with libFuzzer or AFL++, cross-ISA validation on the real target platforms (x86 AVX / ARM NEON+SVE / PPC64LE / RISC-V) since SWAR carry-safety and endianness assumptions vary, property-based refinement checks strengthened with KLEE or SMT-backed equivalence proofs for the more delicate transforms, full-library regression suites (not just the extracted-function tests), and human code review by the maintainers who know the ABI and consumer invariants. The LLM is half the pipeline; coverage-guided fuzzing plus human review is the other half, and it's not optional.
 
-Result: **5 optimizations, 1.40× to 6.87× faster, 293k fuzzed tests, 0 regressions.**
-
-Two examples:
-→ Abseil's suffix-compare walked 1 byte at a time; its sibling prefix-compare was already 8-at-a-time. → **6.87× faster**
-→ cpp-httplib's HTTP-header hash was implemented using **recursion**. Change to a `for` loop. → **1.44× faster**
-
-Conservative: ~$214 k/year saved at 10 M-core hyperscaler scale, from just 5 functions. Scale to the full surface of every popular C++/Java library → **hundreds of millions per year** on the table.
-
-Caveat: LLM output still requires differential fuzzing under ASan/UBSan/MSan, cross-ISA validation, property-based refinement checks, and human review before it ships. Half-pipeline; not the whole pipeline.
-
-Repo (findings, benchmarks, safety analysis) in the first comment 👇
+Repo (findings, benchmarks, safety analysis, photocard) in the first comment 👇
