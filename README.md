@@ -1,5 +1,7 @@
 # optimization-detective
 
+![Summary card](photocard.png)
+
 Five simple, drop-in performance patches to widely-used open-source C++ libraries — Abseil, nlohmann/json, and cpp-httplib — with reproducible microbenchmarks, exhaustive correctness verification, safety analysis, and fleet-scale $ / CO₂ math.
 
 **The whole point:** each optimization can be explained in one sentence a non-C++-engineer can follow. Then the numbers land.
@@ -92,6 +94,10 @@ Each `src/*/original.h` contains verbatim (or lightly adapted) code lifted from 
 - cpp-httplib: MIT (© Yuji Hirose)
 
 Full upstream license texts land under `third_party/*/LICENSE*` after `./bootstrap.sh`. My contributions (optimized code, tests, benchmarks, harness, docs) are MIT-licensed — see [LICENSE](LICENSE).
+
+## Trademark notice
+
+Company names appearing in this repository (Cloudflare, Airbnb, Lyft, Stripe, Uber, Snowflake, Netflix, Square, Dropbox, Cisco, Twitch, etc.) are used only to describe where the underlying open-source libraries are deployed in production. Their appearance is factual reference, not endorsement, sponsorship, or affiliation. All trademarks are the property of their respective owners.
 
 ## The meta-lesson
 

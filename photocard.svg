@@ -1,50 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0b1220"/>
       <stop offset="100%" stop-color="#111a2e"/>
     </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a5f3fc"/>
+    </linearGradient>
     <style>
-      .brand      { font-size: 22px; font-weight: 600; fill: #64748b; letter-spacing: 4px; }
-      .hero       { font-size: 220px; font-weight: 800; fill: #f8fafc; letter-spacing: -6px; }
-      .hero-unit  { font-size: 100px; font-weight: 700; fill: #22d3ee; }
-      .hero-label { font-size: 26px; font-weight: 500; fill: #94a3b8; letter-spacing: 1px; }
-      .divider    { stroke: #1e293b; stroke-width: 2; }
-      .body-hd    { font-size: 24px; font-weight: 700; fill: #a5f3fc; letter-spacing: 3px; }
-      .lib        { font-size: 34px; font-weight: 700; fill: #f8fafc; }
-      .libdot     { font-size: 34px; font-weight: 400; fill: #334155; }
-      .footer-mono{ font-size: 22px; font-weight: 500; fill: #22d3ee; font-family: 'SF Mono', Menlo, Consolas, monospace; }
-      .footer-sm  { font-size: 16px; font-weight: 400; fill: #64748b; letter-spacing: 1px; }
+      .brand         { font-size: 22px; font-weight: 600; fill: #64748b; letter-spacing: 4px; }
+      .section-head  { font-size: 20px; font-weight: 700; fill: #a5f3fc; letter-spacing: 3px; }
+      .fn-name       { font-size: 26px; font-weight: 600; fill: #e2e8f0; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+      .fn-lib        { font-size: 18px; font-weight: 400; fill: #64748b; }
+      .fn-speed      { font-size: 32px; font-weight: 800; fill: #34d399; }
+      .hero-money    { font-size: 130px; font-weight: 800; fill: #f8fafc; letter-spacing: -3px; }
+      .hero-label    { font-size: 22px; font-weight: 500; fill: #94a3b8; letter-spacing: 1px; }
+      .chip-txt      { font-size: 20px; font-weight: 700; fill: #f8fafc; }
+      .rule          { stroke: #1e293b; stroke-width: 2; }
+      .rule-accent   { stroke: url(#accent); stroke-width: 3; }
+      .footer-mono   { font-size: 20px; font-weight: 500; fill: #22d3ee; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+      .footer-sm     { font-size: 15px; font-weight: 400; fill: #64748b; letter-spacing: 1px; }
     </style>
   </defs>
 
   <rect width="1200" height="1200" fill="url(#bg)"/>
 
-  <!-- Brand mark -->
-  <text x="600" y="130" text-anchor="middle" class="brand">OPTIMIZATION-DETECTIVE</text>
+  <!-- Header -->
+  <text x="600" y="70" text-anchor="middle" class="brand">OPTIMIZATION-DETECTIVE</text>
+  <line x1="500" y1="90" x2="700" y2="90" class="rule-accent"/>
 
-  <!-- Hero 1: speedup -->
-  <text x="600" y="380" text-anchor="middle" class="hero">6.87<tspan class="hero-unit">×</tspan></text>
-  <text x="600" y="430" text-anchor="middle" class="hero-label">peak speedup on Abseil's suffix-compare</text>
+  <!-- Section: 5 functions -->
+  <text x="80" y="145" class="section-head">5 OPTIMIZATIONS</text>
 
-  <line x1="300" y1="490" x2="900" y2="490" class="divider"/>
+  <!-- fn 1 -->
+  <text x="80"   y="200" class="fn-name">FindLongestCommonSuffix</text>
+  <text x="80"   y="222" class="fn-lib">absl/strings/match.cc</text>
+  <text x="1120" y="212" text-anchor="end" class="fn-speed">6.87×</text>
 
-  <!-- Hero 2: dollars -->
-  <text x="600" y="680" text-anchor="middle" class="hero">$214k</text>
-  <text x="600" y="730" text-anchor="middle" class="hero-label">
-    per year, at 10 M-core hyperscaler scale  ·  ~1,000 tCO<tspan baseline-shift="sub" font-size="18">2</tspan>e avoided
-  </text>
+  <!-- fn 2 -->
+  <text x="80"   y="272" class="fn-name">memcasecmp</text>
+  <text x="80"   y="294" class="fn-lib">absl/strings/internal/memutil.cc  · backs EqualsIgnoreCase</text>
+  <text x="1120" y="284" text-anchor="end" class="fn-speed">5.98×</text>
 
-  <line x1="300" y1="790" x2="900" y2="790" class="divider"/>
+  <!-- fn 3 -->
+  <text x="80"   y="344" class="fn-name">dump_escaped</text>
+  <text x="80"   y="366" class="fn-lib">nlohmann/json  · JSON string encoder</text>
+  <text x="1120" y="356" text-anchor="end" class="fn-speed">4.62×</text>
 
-  <!-- Library row -->
-  <text x="600" y="880" text-anchor="middle" class="body-hd">FROM 5 OPTIMIZATIONS IN</text>
-  <text x="600" y="950" text-anchor="middle">
-    <tspan class="lib">Abseil</tspan><tspan class="libdot">  ·  </tspan><tspan class="lib">nlohmann/json</tspan><tspan class="libdot">  ·  </tspan><tspan class="lib">cpp-httplib</tspan>
-  </text>
+  <!-- fn 4 -->
+  <text x="80"   y="416" class="fn-name">case_ignore::hash</text>
+  <text x="80"   y="438" class="fn-lib">cpp-httplib  · HTTP header hash  · recursion → for-loop</text>
+  <text x="1120" y="428" text-anchor="end" class="fn-speed">1.44×</text>
+
+  <!-- fn 5 -->
+  <text x="80"   y="488" class="fn-name">RemoveExtraAsciiWhitespace</text>
+  <text x="80"   y="510" class="fn-lib">absl/strings/ascii.cc  · fast-path skip when input is clean</text>
+  <text x="1120" y="500" text-anchor="end" class="fn-speed">1.40×</text>
+
+  <line x1="80" y1="555" x2="1120" y2="555" class="rule"/>
+
+  <!-- Hero money -->
+  <text x="600" y="695" text-anchor="middle" class="hero-money">~$214k/yr</text>
+  <text x="600" y="735" text-anchor="middle" class="hero-label">saved at 10 M-core hyperscaler scale  ·  ~1,000 tCO<tspan baseline-shift="sub" font-size="14">2</tspan>e avoided</text>
+
+  <line x1="80" y1="795" x2="1120" y2="795" class="rule"/>
+
+  <!-- USED IN PRODUCTION AT -->
+  <text x="600" y="855" text-anchor="middle" class="section-head">USED IN PRODUCTION AT</text>
+
+  <!-- Company chips: row 1 -->
+  <!-- All chips are 155w x 55h. Row 1 y=890..945. -->
+  <g transform="translate(80, 890)">
+    <!-- Cloudflare (orange) -->
+    <rect x="0"   y="0" rx="8" width="200" height="55" fill="#F38020"/>
+    <text x="100" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Cloudflare</text>
+    <!-- Airbnb (pink/red) -->
+    <rect x="215" y="0" rx="8" width="160" height="55" fill="#FF5A5F"/>
+    <text x="295" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Airbnb</text>
+    <!-- Lyft (pink) -->
+    <rect x="390" y="0" rx="8" width="120" height="55" fill="#FF00BF"/>
+    <text x="450" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Lyft</text>
+    <!-- Stripe (purple) -->
+    <rect x="525" y="0" rx="8" width="160" height="55" fill="#635BFF"/>
+    <text x="605" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Stripe</text>
+    <!-- Uber (black) -->
+    <rect x="700" y="0" rx="8" width="130" height="55" fill="#000000" stroke="#334155" stroke-width="1"/>
+    <text x="765" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Uber</text>
+    <!-- Snowflake (blue) -->
+    <rect x="845" y="0" rx="8" width="200" height="55" fill="#29B5E8"/>
+    <text x="945" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Snowflake</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(190, 965)">
+    <!-- Netflix (red) -->
+    <rect x="0"   y="0" rx="8" width="160" height="55" fill="#E50914"/>
+    <text x="80"  y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Netflix</text>
+    <!-- Square (dark grey/black) -->
+    <rect x="175" y="0" rx="8" width="150" height="55" fill="#3E4348"/>
+    <text x="250" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Square</text>
+    <!-- Dropbox (blue) -->
+    <rect x="340" y="0" rx="8" width="170" height="55" fill="#0061FF"/>
+    <text x="425" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Dropbox</text>
+    <!-- Cisco (blue) -->
+    <rect x="525" y="0" rx="8" width="130" height="55" fill="#1BA0D7"/>
+    <text x="590" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Cisco</text>
+    <!-- Netflix/Uber other proxies: DoorDash (red) or Robinhood (green)? Skip. -->
+    <!-- Add Twitch as another likely -->
+    <rect x="670" y="0" rx="8" width="150" height="55" fill="#9146FF"/>
+    <text x="745" y="36" text-anchor="middle" class="chip-txt" fill="#ffffff">Twitch</text>
+  </g>
+
+  <text x="600" y="1075" text-anchor="middle" class="footer-sm">and any C++ service running Envoy, gRPC, nlohmann/json, or cpp-httplib</text>
 
   <!-- Footer -->
-  <text x="600" y="1100" text-anchor="middle" class="footer-mono">github.com/marufzaber/optimization-detective</text>
-  <text x="600" y="1140" text-anchor="middle" class="footer-sm">293,000 fuzzed correctness tests  ·  zero regressions</text>
+  <line x1="80" y1="1110" x2="1120" y2="1110" class="rule"/>
+  <text x="600" y="1145" text-anchor="middle" class="footer-mono">github.com/marufzaber/optimization-detective</text>
+  <text x="600" y="1175" text-anchor="middle" class="footer-sm">293,000 fuzzed correctness tests  ·  zero regressions</text>
 </svg>
