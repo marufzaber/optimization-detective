@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a5f3fc"/>
+    </linearGradient>
+    <style>
+      .h1     { font-size: 62px; font-weight: 800; fill: #f8fafc; letter-spacing: -1px; }
+      .h2     { font-size: 26px; font-weight: 500; fill: #94a3b8; }
+      .lib    { font-size: 34px; font-weight: 800; fill: #22d3ee; letter-spacing: -0.5px; }
+      .libsub { font-size: 18px; font-weight: 400; fill: #64748b; }
+      .change { font-size: 22px; font-weight: 400; fill: #e2e8f0; }
+      .change-strong { font-weight: 600; fill: #f8fafc; }
+      .speedup { font-size: 32px; font-weight: 800; fill: #34d399; }
+      .section-head { font-size: 22px; font-weight: 700; fill: #a5f3fc; letter-spacing: 3px; }
+      .money-num { font-size: 40px; font-weight: 800; fill: #f8fafc; }
+      .money-label { font-size: 16px; font-weight: 500; fill: #94a3b8; }
+      .companies { font-size: 19px; font-weight: 500; fill: #cbd5e1; }
+      .footer-strong { font-size: 20px; font-weight: 700; fill: #f8fafc; }
+      .footer-mono { font-size: 18px; font-weight: 500; fill: #22d3ee; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+      .footer-sm { font-size: 15px; font-weight: 400; fill: #64748b; }
+      .rule { stroke: #1e293b; stroke-width: 2; }
+      .divider-accent { stroke: url(#accent); stroke-width: 3; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <text x="80" y="110" class="h1">5 simple wins</text>
+  <text x="80" y="155" class="h2">in 3 open-source C++ libraries that power the internet</text>
+  <line x1="80" y1="185" x2="220" y2="185" class="divider-accent"/>
+
+  <!-- Abseil -->
+  <text x="80" y="240" class="lib">Abseil</text>
+  <text x="220" y="240" class="libsub">— used in gRPC, Envoy, Protobuf, OpenXLA, TensorFlow</text>
+
+  <text x="80"  y="290" class="change">Case-insensitive compare — <tspan class="change-strong">compare 8 bytes at once</tspan> instead of one</text>
+  <text x="1120" y="290" class="speedup" text-anchor="end">5.98×</text>
+
+  <text x="80"  y="335" class="change">Longest-common-suffix — <tspan class="change-strong">write the missing 8-byte version</tspan> (its sibling had it)</text>
+  <text x="1120" y="335" class="speedup" text-anchor="end">6.87×</text>
+
+  <text x="80"  y="380" class="change">Whitespace canonicalizer — <tspan class="change-strong">check first, skip the rewrite</tspan> when clean</text>
+  <text x="1120" y="380" class="speedup" text-anchor="end">1.40×</text>
+
+  <line x1="80" y1="415" x2="1120" y2="415" class="rule"/>
+
+  <!-- nlohmann/json -->
+  <text x="80" y="465" class="lib">nlohmann/json</text>
+  <text x="360" y="465" class="libsub">— most-starred C++ JSON library (~44k stars)</text>
+
+  <text x="80"  y="515" class="change">JSON string encoder — <tspan class="change-strong">skip the UTF-8 decoder</tspan> for strings with no special chars</text>
+  <text x="1120" y="515" class="speedup" text-anchor="end">4.62×</text>
+
+  <line x1="80" y1="555" x2="1120" y2="555" class="rule"/>
+
+  <!-- cpp-httplib -->
+  <text x="80" y="605" class="lib">cpp-httplib</text>
+  <text x="290" y="605" class="libsub">— most popular single-header C++ HTTP library (~15k stars)</text>
+
+  <text x="80"  y="655" class="change">HTTP-header hash — <tspan class="change-strong">change recursion to a for-loop</tspan> (yes, really)</text>
+  <text x="1120" y="655" class="speedup" text-anchor="end">1.44×</text>
+
+  <line x1="80" y1="690" x2="1120" y2="690" class="divider-accent"/>
+
+  <!-- Money section -->
+  <text x="80"  y="740" class="section-head">CONSERVATIVE FLEET-SCALE IMPACT</text>
+
+  <!-- 3-column money block -->
+  <g transform="translate(80, 780)">
+    <!-- col 1 -->
+    <text x="0" y="0" class="money-label">100 k cores  (mid-size internet co)</text>
+    <text x="0" y="45" class="money-num">~$2 k/yr</text>
+    <text x="0" y="72" class="money-label">~10 tCO₂e avoided</text>
+    <!-- col 2 -->
+    <text x="360" y="0" class="money-label">1 M cores  (large tech co)</text>
+    <text x="360" y="45" class="money-num">~$21 k/yr</text>
+    <text x="360" y="72" class="money-label">~100 tCO₂e avoided</text>
+    <!-- col 3 -->
+    <text x="720" y="0" class="money-label">10 M cores  (hyperscaler-tier)</text>
+    <text x="720" y="45" class="money-num">~$214 k/yr</text>
+    <text x="720" y="72" class="money-label">~1,000 tCO₂e avoided</text>
+  </g>
+
+  <!-- Companies -->
+  <text x="80"  y="920" class="section-head">SOFTWARE YOU'VE USED TODAY</text>
+  <text x="80"  y="965" class="companies">Cloudflare · Airbnb · Lyft · Stripe · Uber · Snowflake</text>
+  <text x="80"  y="995" class="companies">Netflix · Square · Cisco · Dropbox · every C++ microservice you've deployed</text>
+
+  <!-- Scale-up sentence -->
+  <line x1="80" y1="1035" x2="1120" y2="1035" class="rule"/>
+  <text x="80" y="1080" class="change" font-style="italic">
+    Scale this thinking across every popular C++ and Java library and the
+  </text>
+  <text x="80" y="1108" class="change" font-style="italic">
+    industry-wide savings run into <tspan fill="#34d399" font-weight="800">hundreds of millions of dollars per year</tspan>.
+  </text>
+
+  <!-- Footer -->
+  <line x1="80" y1="1140" x2="1120" y2="1140" class="rule"/>
+  <text x="80"   y="1170" class="footer-sm">293,000 fuzzed correctness tests · zero regressions · reproducible on any machine with clang++</text>
+  <text x="80"   y="1195" class="footer-mono">github.com/marufzaber/optimization-detective</text>
+</svg>
